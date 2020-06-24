@@ -3,31 +3,36 @@ import React from 'react';
 import GlobalStyle from '../../themes/global-style';
 import { MainContainer } from './styles';
 
+import { Navbar } from '../../components';
+
+// TODO Add Width prop
 interface Props {
-  asides?: {
+  allowAsides?: {
     left?: boolean;
     right?: boolean;
   };
 }
 
 const defaultProps: Props = {
-  asides: {
+  allowAsides: {
     left: false,
-    right: true,
+    right: false,
   },
 };
 
 const Layout: React.FC<Props> = ({
   children,
-  asides = defaultProps.asides,
+  allowAsides = defaultProps.allowAsides,
 }) => (
   <>
     <GlobalStyle />
-    <header></header>
-    <MainContainer asides={asides}>
-      {asides!.left && <aside></aside>}
+    <header>
+      <Navbar />
+    </header>
+    <MainContainer allowAsides={allowAsides}>
+      {allowAsides!.left && <aside></aside>}
       <main>{children}</main>
-      {asides!.right && <aside></aside>}
+      {allowAsides!.right && <aside></aside>}
     </MainContainer>
   </>
 );
