@@ -3,23 +3,24 @@ import styled from 'styled-components';
 interface MainContainerProps {
   allowAsides?: {
     left?: boolean;
-    right?: boolean;
   };
+  width: number;
 }
 
 const MainContainer = styled.div<MainContainerProps>`
   display: flex;
   flex-direction: row;
 
-  margin-right: ${props => (props.allowAsides!.right ? 0 : '0%')};
-  margin-left: ${props => (props.allowAsides!.left ? 0 : '20vw')};
+  margin-right: 0;
+  margin-left: ${props =>
+    props.allowAsides!.left ? 0 : `${(100 - props.width) / 2}vw`};
 
   & main {
-    width: 60vw;
+    width: ${props => `${props.width}vw`};
   }
 
   & aside {
-    width: 20vw;
+    width: ${props => `${(100 - props.width) / 2}vw`};
   }
 
   @media all and (max-width: 800px) {

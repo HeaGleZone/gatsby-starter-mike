@@ -12,6 +12,7 @@ interface Props {
     left?: boolean;
     right?: boolean;
   };
+  width?: number;
 }
 
 const defaultProps: Props = {
@@ -19,18 +20,20 @@ const defaultProps: Props = {
     left: false,
     right: false,
   },
+  width: 60,
 };
 
 const Layout: React.FC<Props> = ({
   children,
   allowAsides = defaultProps.allowAsides,
+  width = defaultProps.width,
 }) => (
   <>
     <GlobalStyle />
     <header>
       <Navbar />
     </header>
-    <MainContainer allowAsides={allowAsides}>
+    <MainContainer allowAsides={allowAsides} width={width || 0}>
       {allowAsides!.left && <aside></aside>}
       <main>{children}</main>
       {allowAsides!.right && <aside></aside>}
