@@ -9,6 +9,10 @@ interface ButtonProps {
   isClicked: boolean;
 }
 
+interface ContentWrappedProps extends NavbarProps {
+  isClicked: boolean;
+}
+
 const NavbarStyled = styled.div`
   position: relative;
   width: 100%;
@@ -105,7 +109,7 @@ const Bottom = styled(Line)<ButtonProps>`
   transform: ${props => (props.isClicked ? 'rotate(-45deg)' : 'rotate(0deg)')};
 `;
 
-const ContentWrapped = styled.div<ButtonProps>`
+const ContentWrapped = styled.div<ContentWrappedProps>`
   position: fixed;
   /* 108px = 36px button * 3 */
   width: calc(100vw - 108px);
@@ -121,12 +125,23 @@ const ContentWrapped = styled.div<ButtonProps>`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  opacity: ${props => (props.isHidden ? 0 : 1)};
 
   & a {
     font-size: 28px;
-    margin: 1em 0 0 0.4em;
-
+    margin: 1em 0.4em 0 0.4em;
+    word-break: break-all;
+    white-space: normal;
     text-transform: capitalize;
+
+    &:last-child {
+      margin: 1em 0.4em 1em 0.4em;
+    }
+  }
+
+  /* Overloads Opacity if under max-width */
+  @media screen and (max-width: 800px) {
+    opacity: 1;
   }
 `;
 

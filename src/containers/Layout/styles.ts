@@ -25,6 +25,7 @@ const MainContainer = styled.div<MainContainerProps>`
 
   @media all and (max-width: 800px) {
     flex-direction: column;
+    margin: 0;
 
     & main {
       order: 1;
@@ -37,6 +38,8 @@ const MainContainer = styled.div<MainContainerProps>`
     & main,
     & aside {
       width: 100%;
+      max-width: 100vw;
+      min-height: auto;
     }
   }
 `;

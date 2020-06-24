@@ -4,6 +4,10 @@
     "path": "/"
   },
   {
+    "name": "Test",
+    "path": "/using-typescript"
+  },
+  {
     "name": "about",
     "path": "/about/"
   }

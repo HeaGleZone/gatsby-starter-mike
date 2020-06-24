@@ -6,7 +6,6 @@ import { MainContainer } from './styles';
 
 import { Navbar } from '../../components';
 
-// TODO Add Width prop
 interface Props {
   allowAsides?: {
     left?: boolean;
