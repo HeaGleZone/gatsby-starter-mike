@@ -5,21 +5,12 @@ import { NavbarStyled, NavbarExtended } from './styles';
 
 import NavbarWrapped from './NavbarWrapped';
 
-// TODO Add JSON data support
-// TODO Add Settings Menu for theme styling
-const bigBreakingPoint: number = -1;
-const Links = () => (
-  <>
-    <Link to="/">Home</Link>
-    <Link to="/">Some Page</Link>
-    <Link to="/">Other page</Link>
-    <Link to="/">Blog</Link>
-    <Link to="/">About</Link>
-  </>
-);
+import { useNavbarlinks } from '../../queries/useNavbarLinks';
 
+// TODO Add Settings Menu for theme styling
 const Navbar: React.FC = () => {
   const [isWrapped, setMenuSize] = useState(false);
+  const links = useNavbarlinks();
 
   // Check state before any zoom
   useEffect(() => {
@@ -34,6 +25,17 @@ const Navbar: React.FC = () => {
       window.removeEventListener('resize', handleNavbarOverflow, true);
     };
   });
+
+  const generateLinks = () => {
+    interface Link {
+      path: string;
+      name: string;
+    }
+
+    return React.Children.toArray(
+      links.map(({ path, name }: Link) => <Link to={path}>{name}</Link>)
+    );
+  };
 
   const handleNavbarOverflow = () => {
     const navbar: HTMLElement | null = document.getElementById(
@@ -54,10 +56,12 @@ const Navbar: React.FC = () => {
   return (
     <NavbarStyled>
       <NavbarExtended isHidden={isWrapped} id="navbar-extended">
-        <Links />
+        {generateLinks()}
       </NavbarExtended>
 
-      <NavbarWrapped isHidden={!isWrapped} id="navbar-wrapped"></NavbarWrapped>
+      <NavbarWrapped isHidden={!isWrapped} id="navbar-wrapped">
+        {generateLinks()}
+      </NavbarWrapped>
     </NavbarStyled>
   );
 };

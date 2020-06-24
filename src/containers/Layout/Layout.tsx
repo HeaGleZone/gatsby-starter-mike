@@ -1,5 +1,6 @@
 import React from 'react';
 
+import '../../themes/index.css';
 import GlobalStyle from '../../themes/global-style';
 import { MainContainer } from './styles';
 

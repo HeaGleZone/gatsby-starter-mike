@@ -15,7 +15,7 @@ const NavbarWrapped: React.FC<Props> = props => {
   return (
     <NavbarWrappedStyled {...props}>
       <MenuButton isClicked={isOpen} onClick={() => setOpen(!isOpen)} />
-      <ContentWrapped isClicked={isOpen}></ContentWrapped>
+      <ContentWrapped isClicked={isOpen}>{props.children}</ContentWrapped>
     </NavbarWrappedStyled>
   );
 };

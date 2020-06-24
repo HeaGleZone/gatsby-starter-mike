@@ -32,7 +32,7 @@ const NavbarExtended = styled(Navbar)<NavbarProps>`
   box-sizing: border-box;
   /* padding: 10px; */
   justify-content: space-between;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
   z-index: ${props => (props.isHidden ? -1 : 1)};
 
@@ -40,6 +40,7 @@ const NavbarExtended = styled(Navbar)<NavbarProps>`
     padding: 0 10px;
     word-break: keep-all;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   /* Overloads Overflow checks if under max-width */
@@ -50,7 +51,6 @@ const NavbarExtended = styled(Navbar)<NavbarProps>`
 
 const NavbarWrappedStyled = styled(Navbar)<NavbarProps>`
   background: orange;
-
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
@@ -58,12 +58,6 @@ const NavbarWrappedStyled = styled(Navbar)<NavbarProps>`
   align-items: center;
 
   z-index: ${props => (props.isHidden ? -1 : 1)};
-
-  & a {
-    padding: 0 10px;
-    word-break: keep-all;
-    white-space: nowrap;
-  }
 
   /* Overloads Overflow checks if under max-width */
   @media screen and (max-width: 800px) {
@@ -124,6 +118,16 @@ const ContentWrapped = styled.div<ButtonProps>`
   transition: transform 0.2s ease;
   transform: ${props =>
     props.isClicked ? 'translate(0%, 0)' : 'translate(-100%, 0)'};
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  & a {
+    font-size: 28px;
+    margin: 1em 0 0 0.4em;
+
+    text-transform: capitalize;
+  }
 `;
 
 export {
