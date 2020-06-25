@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import { Layout } from '../containers/';
+import { Layout, Hero } from '../containers/';
 
 const IndexPage = () => (
-  <Layout>
+  <Layout showHero>
     <h1>Hi people</h1>
     <h2>This is a h2!</h2>
     <h3>This is a h3!</h3>

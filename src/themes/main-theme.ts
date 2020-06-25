@@ -3,13 +3,13 @@ import { DefaultTheme } from 'styled-components';
 const mainTheme: DefaultTheme = {
   colors: {
     primary: 'white',
-    secondary: 'white',
+    secondary: 'rgba(255, 255, 255, 0.8)',
     links: 'red',
   },
 
   backgrounds: {
-    primary: '#1e1e1e',
-    secondary: '#121212',
+    primary: '#111d5e',
+    secondary: '#c70039',
   },
 };
 

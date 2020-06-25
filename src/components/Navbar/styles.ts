@@ -32,7 +32,12 @@ const Navbar = styled.nav`
   height: 100%;
   top: 0;
   left: 0;
-  background: ${props => props.theme.backgrounds.secondary};
+  background: #eeeeee;
+
+  & a {
+    color: black;
+    font-weight: bold;
+  }
 `;
 
 const NavbarExtended = styled(Navbar)<NavbarProps>`
@@ -89,7 +94,7 @@ const Line = styled.div`
   width: 100%;
   height: 2px;
   display: block;
-  background: white;
+  background: black;
   position: absolute;
 `;
 
@@ -118,12 +123,12 @@ const ContentWrapped = styled.div<ContentWrappedProps>`
   /* 108px = 36px button * 3 */
   max-width: calc(100vw - 108px);
   height: 100vh;
-  background: ${props => props.theme.backgrounds.secondary};
-  border-right: 2px solid rgba(0, 0, 0, 0.4);
+  background: #eeeeee;
+  border-right: 2px solid rgba(0, 0, 0, 0.6);
   top: 0;
   left: 0;
   overflow-y: auto;
-  color: white;
+  color: #eeeeee;
   transition: transform 0.2s ease;
   transform: ${props =>
     props.isClicked ? 'translate(0%, 0)' : 'translate(-100%, 0)'};

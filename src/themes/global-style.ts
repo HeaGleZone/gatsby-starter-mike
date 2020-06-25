@@ -6,19 +6,17 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     width: 100%;
     font-family: 'Ubuntu', sans-serif;
-    background: ${props => props.theme.backgrounds.secondary};
+    background: #eeeeee;
     color: ${props => props.theme.colors.primary};
   }
 
   a, p, li {
     font-size: 18px;
-    line-height: 1.6em;
-    opacity: 0.8;
+    line-height: 1.6em;   
     color: ${props => props.theme.colors.primary};
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    opacity: 0.6;
+  h1, h2, h3, h4, h5, h6 {    
     color: ${props => props.theme.colors.secondary};
   }
 
@@ -56,7 +54,7 @@ const GlobalStyle = createGlobalStyle`
     margin-top: 40px;
     margin-bottom: 40px;
     min-height: calc(100vh - 160px);
-    background: ${props => props.theme.backgrounds.secondary};
+    background: #eeeeee;
     box-sizing: border-box;
     padding: 20px 20px;
   }
