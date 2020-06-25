@@ -1,17 +1,21 @@
 import React from 'react';
+import { ThemeProvider } from 'styled-components';
+
+import { mainTheme } from '../../themes/main-theme';
 
 import '../../themes/index.css';
 import GlobalStyle from '../../themes/global-style';
 import { MainContainer } from './styles';
 
 import { Navbar } from '../../components';
+import { Hero } from '../';
 
 interface Props {
   allowAsides?: {
     left?: boolean;
     right?: boolean;
   };
-  width?: number;
+  mainFlex?: number;
 }
 
 const defaultProps: Props = {
@@ -19,25 +23,26 @@ const defaultProps: Props = {
     left: false,
     right: false,
   },
-  width: 60,
+  mainFlex: 4,
 };
 
 const Layout: React.FC<Props> = ({
   children,
   allowAsides = defaultProps.allowAsides,
-  width = defaultProps.width,
+  mainFlex = defaultProps.mainFlex,
 }) => (
-  <>
+  <ThemeProvider theme={mainTheme}>
     <GlobalStyle />
     <header>
       <Navbar />
+      <Hero />
     </header>
-    <MainContainer allowAsides={allowAsides} width={width || 0}>
-      {allowAsides!.left && <aside></aside>}
+    <MainContainer allowAsides={allowAsides} mainFlex={mainFlex as number}>
+      <aside></aside>
       <main>{children}</main>
-      {allowAsides!.right && <aside></aside>}
+      <aside></aside>
     </MainContainer>
-  </>
+  </ThemeProvider>
 );
 
 export default Layout;

@@ -13,24 +13,29 @@ interface ContentWrappedProps extends NavbarProps {
   isClicked: boolean;
 }
 
+// * Styles
 const NavbarStyled = styled.div`
   position: relative;
   width: 100%;
-  height: 50px;
+  height: 80px;
   overflow-x: hidden;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+
+  @media all and (max-width: 800px) {
+    height: 50px;
+  }
 `;
 
-// * Styles
 const Navbar = styled.nav`
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
+  background: ${props => props.theme.backgrounds.secondary};
 `;
 
 const NavbarExtended = styled(Navbar)<NavbarProps>`
-  background: green;
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
@@ -38,7 +43,7 @@ const NavbarExtended = styled(Navbar)<NavbarProps>`
   justify-content: space-between;
   justify-content: flex-start;
   align-items: center;
-  z-index: ${props => (props.isHidden ? -1 : 1)};
+  z-index: ${props => (props.isHidden ? 100 : 200)};
 
   & a {
     padding: 0 10px;
@@ -49,23 +54,22 @@ const NavbarExtended = styled(Navbar)<NavbarProps>`
 
   /* Overloads Overflow checks if under max-width */
   @media screen and (max-width: 800px) {
-    z-index: -1;
+    z-index: 200;
   }
 `;
 
 const NavbarWrappedStyled = styled(Navbar)<NavbarProps>`
-  background: orange;
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
   justify-content: flex-end;
   align-items: center;
 
-  z-index: ${props => (props.isHidden ? -1 : 1)};
+  z-index: ${props => (props.isHidden ? 100 : 200)};
 
   /* Overloads Overflow checks if under max-width */
   @media screen and (max-width: 800px) {
-    z-index: 1;
+    z-index: 200;
   }
 `;
 
@@ -85,7 +89,7 @@ const Line = styled.div`
   width: 100%;
   height: 2px;
   display: block;
-  background: black;
+  background: white;
   position: absolute;
 `;
 
@@ -112,9 +116,10 @@ const Bottom = styled(Line)<ButtonProps>`
 const ContentWrapped = styled.div<ContentWrappedProps>`
   position: fixed;
   /* 108px = 36px button * 3 */
-  width: calc(100vw - 108px);
+  max-width: calc(100vw - 108px);
   height: 100vh;
-  background: black;
+  background: ${props => props.theme.backgrounds.secondary};
+  border-right: 2px solid rgba(0, 0, 0, 0.4);
   top: 0;
   left: 0;
   overflow-y: auto;
@@ -126,16 +131,17 @@ const ContentWrapped = styled.div<ContentWrappedProps>`
   flex-direction: column;
   justify-content: flex-start;
   opacity: ${props => (props.isHidden ? 0 : 1)};
+  z-index: 200;
 
   & a {
-    font-size: 28px;
-    margin: 1em 0.4em 0 0.4em;
+    font-size: 24px;
+    margin: 1em 2em 0 2em;
     word-break: break-all;
     white-space: normal;
     text-transform: capitalize;
 
     &:last-child {
-      margin: 1em 0.4em 1em 0.4em;
+      margin: 1em 2em 1em 2em;
     }
   }
 

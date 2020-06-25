@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 interface MainContainerProps {
+  mainFlex: number;
   allowAsides?: {
     left?: boolean;
+    right?: boolean;
   };
-  width: number;
 }
 
 const MainContainer = styled.div<MainContainerProps>`
@@ -12,15 +13,22 @@ const MainContainer = styled.div<MainContainerProps>`
   flex-direction: row;
 
   margin-right: 0;
-  margin-left: ${props =>
-    props.allowAsides!.left ? 0 : `${(100 - props.width) / 2}vw`};
 
   & main {
-    width: ${props => `${props.width}vw`};
+    border-radius: 20px;
+    flex: ${props => props.mainFlex};
   }
 
   & aside {
-    width: ${props => `${(100 - props.width) / 2}vw`};
+    flex: 1;
+  }
+
+  & aside:nth-child(1) {
+    opacity: ${props => (props.allowAsides!.left ? 1 : 0)};
+  }
+
+  & aside:nth-child(3) {
+    opacity: ${props => (props.allowAsides!.right ? 1 : 0)};
   }
 
   @media all and (max-width: 800px) {
@@ -28,6 +36,7 @@ const MainContainer = styled.div<MainContainerProps>`
     margin: 0;
 
     & main {
+      border-radius: 0px;
       order: 1;
     }
 
@@ -37,8 +46,8 @@ const MainContainer = styled.div<MainContainerProps>`
 
     & main,
     & aside {
-      width: 100%;
-      max-width: 100vw;
+      width: calc(100% - 20px);
+      max-width: 100%;
       min-height: auto;
     }
   }
