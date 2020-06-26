@@ -6,15 +6,22 @@ import { ButtonStyled } from './styles';
 interface Props {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   anchorTo?: string;
+  styles?: {
+    color: string;
+    background: string;
+  };
 }
 
-const Button: React.FC<Props> = ({ children, onClick, anchorTo }) => {
+const Button: React.FC<Props> = ({ children, onClick, anchorTo, styles }) => {
   const moveToPage = () => {
     navigate(anchorTo as string);
   };
 
   return (
-    <ButtonStyled onClick={onClick}>
+    <ButtonStyled
+      onClick={onClick || moveToPage}
+      styles={styles || { color: 'black', background: 'white' }}
+    >
       <p>{children}</p>
     </ButtonStyled>
   );

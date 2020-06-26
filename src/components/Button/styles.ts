@@ -1,24 +1,30 @@
 import styled from 'styled-components';
 
-const ButtonStyled = styled.button`
+interface ButtonProps {
+  styles: {
+    color: string;
+    background: string;
+  };
+}
+
+const ButtonStyled = styled.button<ButtonProps>`
   position: relative;
   padding: 0.5em 2em;
-  background: white;
+  background: ${props => props.styles.background};
   border-radius: 100px;
   outline: none;
   border: none;
-  /* border-width: 2px;
-  border-style: solid;
-  border-color: black; */
-  margin: 10px;
+  margin: 20px;
   cursor: pointer;
   z-index: 100;
+  /* mix-blend-mode: ${props =>
+    props.styles.background && props.styles.color ? 'unset' : 'difference'}; */
   box-shadow: 0px 0px 12px -2px rgba(0, 0, 0, 0.6);
 
   & p {
     position: relative;
     margin: 0;
-    color: black;
+    color: ${props => props.styles.color};
     font-size: 24px;
   }
 
