@@ -10,7 +10,7 @@ const doSomething = () => {
 const HeroContent = () => (
   <Hero>
     <h1>Look, I'm a Website!</h1>
-    <h2>Feelin' good, mate.</h2>
+    <h2>Feelin' good, mate 👍.</h2>
     <ButtonGroup>
       <Button
         onClick={doSomething}

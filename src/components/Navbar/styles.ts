@@ -51,10 +51,35 @@ const NavbarExtended = styled(Navbar)<NavbarProps>`
   z-index: ${props => (props.isHidden ? 100 : 200)};
 
   & a {
-    padding: 0 10px;
+    position: relative;
+    padding: 0 20px;
+    margin: 0 20px;
     word-break: keep-all;
     white-space: nowrap;
     text-transform: capitalize;
+    text-decoration: none;
+    border-radius: 100px;
+
+    &:after {
+      content: '';
+      z-index: -1;
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #f37121;
+      top: 0;
+      left: 0;
+      border-radius: 100px;
+      transform: scale(0);
+      transition: transform 0.2s cubic-bezier(0.5, 0, 0.5, 2);
+    }
+
+    &:hover {
+      &:after {
+        transform: scale(1);
+      }
+    }
   }
 
   /* Overloads Overflow checks if under max-width */

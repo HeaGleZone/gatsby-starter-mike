@@ -7,7 +7,6 @@ import HeroContent from './HeroContent';
 
 import '../../themes/index.css';
 import GlobalStyle from '../../themes/global-style';
-import { MainContainer } from './styles';
 
 import { Navbar } from '../../components';
 interface Props {
@@ -30,8 +29,6 @@ const defaultProps: Props = {
 
 const Layout: React.FC<Props> = ({
   children,
-  allowAsides = defaultProps.allowAsides,
-  mainFlex = defaultProps.mainFlex,
   showHero = defaultProps.showHero,
 }) => (
   <ThemeProvider theme={mainTheme}>
@@ -40,11 +37,7 @@ const Layout: React.FC<Props> = ({
       <Navbar />
       {showHero && <HeroContent />}
     </header>
-    <MainContainer allowAsides={allowAsides} mainFlex={mainFlex as number}>
-      <aside></aside>
-      <main>{children}</main>
-      <aside></aside>
-    </MainContainer>
+    <main>{children}</main>
   </ThemeProvider>
 );
 
