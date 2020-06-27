@@ -4,7 +4,7 @@ export const useNavbarlinks = () => {
   const {
     allNavbarLinksJson: { nodes },
   } = useStaticQuery(graphql`
-    query NavbarLinks {
+    query NavbarLinksQuery {
       allNavbarLinksJson {
         nodes {
           name

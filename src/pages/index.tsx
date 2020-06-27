@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ServiceCard } from '../components/';
-import { Layout, Socials, Section } from '../containers/';
+import { Layout, Socials, Section, OpeningHours } from '../containers/';
 
 const IndexPage = () => (
   <Layout showHero>
@@ -50,6 +50,7 @@ const IndexPage = () => (
         image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FgBV0wehj9YE%2Fmaxresdefault.jpg&f=1&nofb=1"
       />
     </Section>
+    <OpeningHours />
   </Layout>
 );
 
