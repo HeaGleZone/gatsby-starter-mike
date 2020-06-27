@@ -60,7 +60,7 @@ const NavbarExtended = styled(Navbar)<NavbarProps>`
     text-decoration: none;
     border-radius: 100px;
 
-    &:after {
+    &::after {
       content: '';
       z-index: -1;
       display: block;
@@ -76,7 +76,7 @@ const NavbarExtended = styled(Navbar)<NavbarProps>`
     }
 
     &:hover {
-      &:after {
+      &::after {
         transform: scale(1);
       }
     }

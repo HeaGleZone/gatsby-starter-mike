@@ -36,43 +36,37 @@ const GlobalStyle = createGlobalStyle`
   }
 
   main {
-    height: 100%;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    min-height: calc(100vh - 160px);
-    box-sizing: border-box;
-    padding: 20px;
-    background: ${props => props.theme.backgrounds.primary};
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    & *:first-child {
-      margin-top: 0;
+    & > section {
+      margin-bottom: 80px;
     }
   }
 
-  aside {
-    height: 100%;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    min-height: calc(100vh - 160px);
-    background: #eeeeee;
-    box-sizing: border-box;
-    padding: 20px 20px;
+  section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: ${props => props.theme.backgrounds.primary};
+  }
+
+  section.transparent {
+    background: transparent;
+  }
+
+  .section-title {
+    color: ${props => props.theme.colors.secondaryAlternative};
+    text-align: center;
+    margin: 20px;
   }
 
   @media all and (max-width: 800px) {
-    main {
-      margin: 10px;
-      min-height: calc(100vh - 80px);
-    }
-
-    aside {
-      min-height: 0;
-    }
-
-    main, aside {
-      padding: 20px 10px;
-    }
-
     h1 {
       font-size: 40px;
     }
@@ -85,6 +79,12 @@ const GlobalStyle = createGlobalStyle`
     h3 {
       font-size: 20px;
       margin: 20px 0;
+    }
+
+    main {
+      & > section {
+        margin-bottom: 60px;
+      }
     }
   }
 `;

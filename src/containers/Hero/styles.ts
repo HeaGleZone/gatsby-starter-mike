@@ -11,15 +11,9 @@ const HeroStyled = styled.div`
   text-align: center;
   box-sizing: border-box;
   padding: 10px;
+  margin-bottom: 60px;
 
-  background-image: linear-gradient(
-    to bottom,
-    #111d5e,
-    #511767,
-    #820062,
-    #aa0052,
-    #c70039
-  );
+  background-image: ${props => props.theme.linearGradients.primary};
 
   & h1 {
     color: white;
@@ -32,6 +26,7 @@ const HeroStyled = styled.div`
 
   @media all and (max-width: 800px) {
     min-height: calc(100vh - 50px);
+    margin-bottom: 40px;
   }
 `;
 

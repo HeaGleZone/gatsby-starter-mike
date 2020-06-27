@@ -10,19 +10,10 @@ import GlobalStyle from '../../themes/global-style';
 
 import { Navbar } from '../../components';
 interface Props {
-  allowAsides?: {
-    left?: boolean;
-    right?: boolean;
-  };
   showHero?: boolean;
-  mainFlex?: number;
 }
 
-const defaultProps: Props = {
-  allowAsides: {
-    left: false,
-    right: false,
-  },
+const defaultProps = {
   showHero: false,
   mainFlex: 4,
 };
