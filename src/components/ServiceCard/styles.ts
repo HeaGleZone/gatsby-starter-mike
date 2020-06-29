@@ -76,6 +76,8 @@ const Arrow = styled.div`
   width: 30px;
   height: 4px;
   background: white;
+  opacity: 1;
+  transition: opacity 0.2s ease;
 
   &::after,
   &::before {
@@ -115,10 +117,30 @@ const Button = styled(Link)`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transition: clip-path 0.2s ease;
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 0%,
+    100% 100%,
+    0% 100%,
+    0% 100%,
+    0% 100%
+  );
 
   &:hover {
-    & > div {
-      animation: ${ArrowAnim} 1.4s ease-out infinite;
+    clip-path: polygon(
+      0% 20%,
+      60% 20%,
+      60% 0%,
+      100% 50%,
+      60% 100%,
+      60% 80%,
+      0% 80%
+    );
+
+    & > ${Arrow} {
+      opacity: 0;
     }
   }
 `;
