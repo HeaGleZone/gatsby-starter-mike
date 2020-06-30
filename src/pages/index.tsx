@@ -1,11 +1,17 @@
 import React from 'react';
 
-import { ServiceCard } from '../components/';
+import { ServiceCard, Contact } from '../components/';
 import { Layout, Socials, Section, OpeningHours } from '../containers/';
 
 const IndexPage = () => (
   <Layout showHero>
     <Socials />
+    <Section title="Get In Touch">
+      <Contact type="phone" value="999 9999999" />
+      <Contact type="social" value="FB Messenger" />
+      <Contact type="mail" value="some@mail.com" />
+    </Section>
+    <OpeningHours />
     <Section title="Services">
       <ServiceCard
         name="Qualcosa"
@@ -50,7 +56,6 @@ const IndexPage = () => (
         image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FgBV0wehj9YE%2Fmaxresdefault.jpg&f=1&nofb=1"
       />
     </Section>
-    <OpeningHours />
   </Layout>
 );
 

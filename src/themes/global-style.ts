@@ -54,7 +54,9 @@ const GlobalStyle = createGlobalStyle`
     justify-content: center;
     flex-wrap: wrap;
     background: ${props => props.theme.backgrounds.primary};
-  }
+    box-sizing: border-box;
+    padding: 40px;
+  }  
 
   section.transparent {
     background: transparent;
@@ -93,6 +95,10 @@ const GlobalStyle = createGlobalStyle`
       & > section {
         margin-bottom: 60px;
       }
+    }
+
+    section.socials {
+      padding: 0px;
     }
   }
 `;
