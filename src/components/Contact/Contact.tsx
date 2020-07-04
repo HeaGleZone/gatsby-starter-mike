@@ -10,35 +10,25 @@ interface Props {
 }
 
 const Contact: React.FC<Props> = ({ type, value, name }) => {
-  const generateLinkHref = () => {
-    switch (type) {
-      case 'phone':
-        return `tel:${value}`;
-      case 'mail':
-        return `mailto:${value}`;
-      case 'social':
-        return value;
-    }
+  const contactsLinks = {
+    phone: `tel:${value}`,
+    mail: `mailto:${value}`,
+    social: value,
   };
 
-  const generateContactIcon = () => {
-    switch (type) {
-      case 'phone':
-        return <IoMdPhonePortrait />;
-      case 'mail':
-        return <IoIosMail />;
-      case 'social':
-        return <IoIosContact />;
-    }
+  const contactIcons = {
+    phone: <IoMdPhonePortrait />,
+    mail: <IoIosMail />,
+    social: <IoIosContact />,
   };
 
   return (
     <ContactStyled
-      href={generateLinkHref() as string}
+      href={contactsLinks[type] as string}
       rel="nofollow noopener noreferrer"
       target={type === 'social' ? '_blank' : '_self'}
     >
-      <IconContainer>{generateContactIcon()}</IconContainer>
+      <IconContainer>{contactIcons[type]}</IconContainer>
       <h3>{name || value}</h3>
     </ContactStyled>
   );

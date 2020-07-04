@@ -4,9 +4,9 @@ interface Props {
   title?: string;
 }
 
-const Section: React.FC<Props> = ({ title = 'Section', children }) => (
+const Section: React.FC<Props> = ({ title, children }) => (
   <>
-    <h2 className="section-title">{title}</h2>
+    {title && <h2 className="section-title">{title}</h2>}
     <section>{children}</section>
   </>
 );

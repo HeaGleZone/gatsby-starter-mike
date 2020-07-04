@@ -1,16 +1,23 @@
 import React from 'react';
 
-import { ServiceCard, Contact } from '../components/';
-import { Layout, Socials, Section, OpeningHours } from '../containers/';
+import { ServiceCard, Contact, Address } from '../components/';
+import { Layout, Socials, Section, OpeningHours, Infos } from '../containers/';
 
 const IndexPage = () => (
   <Layout showHero>
     <Socials />
-    <Section title="Get In Touch">
-      <Contact type="phone" value="999 9999999" />
-      <Contact type="social" value="FB Messenger" />
-      <Contact type="mail" value="some@mail.com" />
-    </Section>
+    <Infos>
+      <section>
+        <Contact type="phone" value="999 9999999" />
+        <Contact type="social" value="FB Messenger" />
+        <Contact type="mail" value="some@mail.com" />
+      </section>
+      <Address>
+        <p>Something Street 99</p>
+        <p>Some place, Earth</p>
+      </Address>
+    </Infos>
+
     <OpeningHours />
     <Section title="Services">
       <ServiceCard

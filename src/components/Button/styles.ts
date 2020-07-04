@@ -9,7 +9,7 @@ interface ButtonProps {
 
 const ButtonStyled = styled.button<ButtonProps>`
   position: relative;
-  padding: 0.5em 2em;
+  padding: 0.75em 2em;
   background: ${props => props.styles.background};
   border-radius: 100px;
   outline: none;
@@ -17,8 +17,6 @@ const ButtonStyled = styled.button<ButtonProps>`
   margin: 20px;
   cursor: pointer;
   z-index: 100;
-  /* mix-blend-mode: ${props =>
-    props.styles.background && props.styles.color ? 'unset' : 'difference'}; */
   box-shadow: 0px 0px 12px -2px rgba(0, 0, 0, 0.6);
 
   & p {
