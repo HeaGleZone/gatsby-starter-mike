@@ -13,7 +13,7 @@ const SocialStyled = styled.a<SocialStyledProps>`
   border-radius: 100%;
   background-image: url(${props => props.image});
   background-position: center;
-  background-size: 50%;
+  background-size: 80%;
   background-repeat: no-repeat;
   transform-style: preserve-3d;
 
