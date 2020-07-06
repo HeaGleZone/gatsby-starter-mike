@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Ubuntu', sans-serif;
     background: #eeeeee;
     color: ${props => props.theme.colors.primary};
+    overflow-y: auto;
   }
 
   a, p, li {

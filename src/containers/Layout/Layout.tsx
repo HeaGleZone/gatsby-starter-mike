@@ -9,6 +9,9 @@ import '../../themes/index.css';
 import GlobalStyle from '../../themes/global-style';
 
 import { Navbar } from '../../components';
+
+import logoImg from '../../images/gatsby.png';
+
 interface Props {
   showHero?: boolean;
 }
@@ -25,7 +28,7 @@ const Layout: React.FC<Props> = ({
   <ThemeProvider theme={mainTheme}>
     <GlobalStyle />
     <header>
-      <Navbar />
+      <Navbar logoSrc={logoImg} />
       {showHero && <HeroContent />}
     </header>
     <main>{children}</main>

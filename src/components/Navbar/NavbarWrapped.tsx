@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 
-import { NavbarWrappedStyled, ContentWrapped } from './styles';
+import {
+  NavbarWrappedStyled,
+  ContentWrapped,
+  DisableBodyScroll,
+  Logo,
+} from './styles';
 
 import MenuButton from './MenuButton';
 
 interface Props {
   isHidden: boolean;
+  logoImg?: string;
   [index: string]: any;
 }
 
@@ -14,6 +20,8 @@ const NavbarWrapped: React.FC<Props> = props => {
 
   return (
     <NavbarWrappedStyled {...props}>
+      <DisableBodyScroll disableScroll={isOpen && !props.isHidden} />
+      <Logo isWrapped={true} image={props.logoImg} />
       <MenuButton isClicked={isOpen} onClick={() => setOpen(!isOpen)} />
       <ContentWrapped isClicked={isOpen} isHidden={props.isHidden}>
         {props.children}

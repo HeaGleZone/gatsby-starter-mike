@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 // * Props
 interface NavbarProps {
@@ -11,6 +12,15 @@ interface ButtonProps {
 
 interface ContentWrappedProps extends NavbarProps {
   isClicked: boolean;
+}
+
+interface DisableBodyScrollProps {
+  disableScroll: boolean;
+}
+
+interface LogoProps {
+  isWrapped: boolean;
+  image?: string;
 }
 
 // * Styles
@@ -146,7 +156,7 @@ const Bottom = styled(Line)<ButtonProps>`
 const ContentWrapped = styled.div<ContentWrappedProps>`
   position: fixed;
   /* 108px = 36px button * 3 */
-  max-width: calc(100vw - 108px);
+  /* max-width: calc(100vw - 108px); */
   height: 100vh;
   background: #eeeeee;
   border-right: 2px solid rgba(0, 0, 0, 0.6);
@@ -181,6 +191,23 @@ const ContentWrapped = styled.div<ContentWrappedProps>`
   }
 `;
 
+const Logo = styled.div<LogoProps>`
+  min-width: ${props => (props.isWrapped ? '180px' : '300px')};
+  height: 80%;
+  position: ${props => (props.isWrapped ? 'absolute' : 'relative')};
+  left: 0;
+  background-image: url(${props => props.image});
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+`;
+
+const DisableBodyScroll = createGlobalStyle<DisableBodyScrollProps>`
+  body, html {
+    overflow-y: ${props => (props.disableScroll ? 'hidden' : 'auto ')};
+  }
+`;
+
 export {
   NavbarStyled,
   NavbarExtended,
@@ -190,4 +217,6 @@ export {
   Center,
   MenuButtonStyled,
   ContentWrapped,
+  DisableBodyScroll,
+  Logo,
 };

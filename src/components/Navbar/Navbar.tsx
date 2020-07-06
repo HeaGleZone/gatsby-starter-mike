@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
 
-import { NavbarStyled, NavbarExtended } from './styles';
+import { NavbarStyled, NavbarExtended, Logo } from './styles';
 
 import NavbarWrapped from './NavbarWrapped';
 
 import { useNavbarlinks } from '../../queries/useNavbarLinks';
 
+interface Props {
+  logoSrc?: string;
+}
+
 // TODO Add Settings Menu for theme styling
-const Navbar: React.FC = () => {
+const Navbar: React.FC<Props> = ({ logoSrc }) => {
   const [isWrapped, setMenuSize] = useState(false);
   const links = useNavbarlinks();
 
@@ -38,28 +42,38 @@ const Navbar: React.FC = () => {
   };
 
   const handleNavbarOverflow = () => {
-    const navbar: HTMLElement | null = document.getElementById(
+    const navbar: HTMLElement = document.getElementById(
       'navbar-extended'
-    );
+    ) as HTMLElement;
+
     const navbarElements: NodeListOf<Element> = document.querySelectorAll(
-      '#navbar-extended > a'
+      '#navbar-extended > *'
     );
+
+    const logo: HTMLElement = document.getElementById('logo') as HTMLElement;
 
     let navbarElementsWidth = 0;
     for (let i = 0; i < navbarElements.length; i++) {
       navbarElementsWidth += navbarElements[i].clientWidth;
     }
 
-    setMenuSize(navbar!.clientWidth < navbarElementsWidth);
+    setMenuSize(
+      navbar.clientWidth - (logo.clientWidth + 100) < navbarElementsWidth
+    );
   };
 
   return (
     <NavbarStyled>
       <NavbarExtended isHidden={isWrapped} id="navbar-extended">
+        <Logo isWrapped={false} id="logo" image={logoSrc} />
         {generateLinks()}
       </NavbarExtended>
 
-      <NavbarWrapped isHidden={!isWrapped} id="navbar-wrapped">
+      <NavbarWrapped
+        isHidden={!isWrapped}
+        id="navbar-wrapped"
+        logoImg={logoSrc}
+      >
         {generateLinks()}
       </NavbarWrapped>
     </NavbarStyled>
