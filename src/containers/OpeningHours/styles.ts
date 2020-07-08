@@ -21,6 +21,7 @@ const Day = styled.div`
 
   & > p {
     font-weight: bold;
+    margin-right: 20px;
   }
 
   @media all and (max-width: 800px) {
@@ -31,6 +32,7 @@ const Day = styled.div`
 
     & > p {
       margin-bottom: 30px;
+      margin-right: 0px;
     }
   }
 `;

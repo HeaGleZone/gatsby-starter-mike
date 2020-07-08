@@ -4,12 +4,15 @@ import { OpeningHoursStyled, Day, Time, Separator } from './styles';
 
 import { useOpeningHours } from '../../queries/useOpeningHours';
 
+interface Props {
+  title?: string;
+}
 interface OpeningHours {
   day: string;
   hours: string[];
 }
 
-const OpeningHours = () => {
+const OpeningHours: React.FC<Props> = ({ title = 'Opening Hours' }) => {
   const opening_hours: OpeningHours[] = useOpeningHours();
 
   const generateTimeTable = () =>
@@ -29,7 +32,7 @@ const OpeningHours = () => {
 
   return (
     <>
-      <h2 className="section-title">Opening Hours</h2>
+      <h2 className="section-title">{title}</h2>
       <OpeningHoursStyled className="transparent">
         {generateTimeTable()}
       </OpeningHoursStyled>

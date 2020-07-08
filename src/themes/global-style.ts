@@ -1,11 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+  * {
+    font-family: 'Ubuntu', sans-serif;
+  }
+
   body, html {
     margin: 0;
     padding: 0;
     width: 100%;
-    font-family: 'Ubuntu', sans-serif;
     background: #eeeeee;
     color: ${props => props.theme.colors.primary};
     overflow-y: auto;
