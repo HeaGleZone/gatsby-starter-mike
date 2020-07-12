@@ -60,7 +60,7 @@ const NavbarExtended = styled(Navbar)<NavbarProps>`
   align-items: center;
   z-index: ${props => (props.isHidden ? 100 : 200)};
 
-  & a {
+  & a:not(#logo) {
     position: relative;
     padding: 0 20px;
     margin: 0 20px;
@@ -200,6 +200,7 @@ const Logo = styled.div<LogoProps>`
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+  cursor: pointer;
 `;
 
 const DisableBodyScroll = createGlobalStyle<DisableBodyScrollProps>`

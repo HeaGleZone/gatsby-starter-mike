@@ -1,11 +1,14 @@
 import React from 'react';
 
-import { useSocials } from '../../queries/useSocials';
-import { loadSocialImage } from '../../utils/socialsHandler';
+import { Social } from '../components';
 
-import { Social } from '../../components';
+import { useSocials } from '../queries/useSocials';
 
-export const DefaultSocials: React.FC = () => {
+interface DefaultSocialsProps {
+  isSmall?: boolean;
+}
+
+export const DefaultSocials: React.FC<DefaultSocialsProps> = ({ isSmall }) => {
   const socialsInfo = useSocials();
 
   interface SocialInfo {
@@ -19,9 +22,16 @@ export const DefaultSocials: React.FC = () => {
         <Social
           href={socialInfo.link}
           image={loadSocialImage(socialInfo.image)}
+          isSmall={isSmall}
         />
       ))
     );
 
   return <>{generateSocialsElements()}</>;
+};
+
+export const loadSocialImage = (imageName: string): string => {
+  const imageSrc: string = require(`../images/icons/${imageName}`);
+
+  return imageSrc;
 };

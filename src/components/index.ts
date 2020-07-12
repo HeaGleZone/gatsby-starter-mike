@@ -4,5 +4,6 @@ import Social from './Social/Social';
 import ServiceCard from './ServiceCard/ServiceCard';
 import Contact from './Contact/Contact';
 import Address from './Address/Address';
+import Footer from './Footer/Footer';
 
-export { Navbar, Button, Social, ServiceCard, Contact, Address };
+export { Navbar, Button, Social, ServiceCard, Contact, Address, Footer };

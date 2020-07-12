@@ -8,7 +8,7 @@ import HeroContent from './HeroContent';
 import '../../themes/index.css';
 import GlobalStyle from '../../themes/global-style';
 
-import { Navbar } from '../../components';
+import { Navbar, Footer } from '../../components';
 
 import logoImg from '../../images/gatsby.png';
 
@@ -32,6 +32,7 @@ const Layout: React.FC<Props> = ({
       {showHero && <HeroContent />}
     </header>
     <main>{children}</main>
+    <Footer logoSrc={logoImg} logoBackground="white"></Footer>
   </ThemeProvider>
 );
 

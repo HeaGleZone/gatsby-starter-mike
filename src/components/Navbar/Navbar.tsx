@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'gatsby';
+import { navigate } from 'gatsby';
 
 import { NavbarStyled, NavbarExtended, Logo } from './styles';
 
+import { generateLinks } from '../../utils/generateLinks';
 import NavbarWrapped from './NavbarWrapped';
-
-import { useNavbarlinks } from '../../queries/useNavbarLinks';
 
 interface Props {
   logoSrc?: string;
@@ -14,7 +13,6 @@ interface Props {
 // TODO Add Settings Menu for theme styling
 const Navbar: React.FC<Props> = ({ logoSrc }) => {
   const [isWrapped, setMenuSize] = useState(false);
-  const links = useNavbarlinks();
 
   // Check state before any zoom
   useEffect(() => {
@@ -29,17 +27,6 @@ const Navbar: React.FC<Props> = ({ logoSrc }) => {
       window.removeEventListener('resize', handleNavbarOverflow, true);
     };
   });
-
-  const generateLinks = () => {
-    interface Link {
-      path: string;
-      name: string;
-    }
-
-    return React.Children.toArray(
-      links.map(({ path, name }: Link) => <Link to={path}>{name}</Link>)
-    );
-  };
 
   const handleNavbarOverflow = () => {
     const navbar: HTMLElement = document.getElementById(
@@ -65,7 +52,12 @@ const Navbar: React.FC<Props> = ({ logoSrc }) => {
   return (
     <NavbarStyled>
       <NavbarExtended isHidden={isWrapped} id="navbar-extended">
-        <Logo isWrapped={false} id="logo" image={logoSrc} />
+        <Logo
+          isWrapped={false}
+          id="logo"
+          image={logoSrc}
+          onClick={() => navigate('/')}
+        />
         {generateLinks()}
       </NavbarExtended>
 

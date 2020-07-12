@@ -1,19 +1,33 @@
 import React from 'react';
 
-import { SocialStyled } from './style';
+import { SocialStyled, SocialSmallStyled } from './style';
 
 interface Props {
   href: string;
   image: string;
+  isSmall?: boolean;
 }
 
-const Social: React.FC<Props> = ({ href, image }) => (
-  <SocialStyled
-    href={href}
-    rel="nofollow noopener noreferrer"
-    target="_blank"
-    image={image}
-  />
-);
+const Social: React.FC<Props> = ({ href, image, isSmall }) => {
+  if (isSmall) {
+    return (
+      <SocialSmallStyled
+        href={href}
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+        image={image}
+      />
+    );
+  }
+
+  return (
+    <SocialStyled
+      href={href}
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+      image={image}
+    />
+  );
+};
 
 export default Social;

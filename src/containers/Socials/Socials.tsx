@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { DefaultSocials } from './DefaultSocials';
+import { DefaultSocials } from '../../utils/socialsHandler';
 
 interface Props {
   title?: string;

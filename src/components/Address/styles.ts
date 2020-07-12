@@ -18,6 +18,8 @@ const AddressStyled = styled.address`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-attachment: fixed;
+  transform: translate3d(0, 0, 0);
 
   & > * {
     transform: translate3d(0, 0, 1px);

@@ -52,4 +52,20 @@ const SocialStyled = styled.a<SocialStyledProps>`
   }
 `;
 
-export { SocialStyled };
+const SocialSmallStyled = styled.a<SocialStyledProps>`
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  margin: 40px;
+  background-image: url(${props => props.image});
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  @media all and (max-width: 800px) {
+    margin: 15px;
+  }
+`;
+
+export { SocialStyled, SocialSmallStyled };
