@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SocialStyled, SocialSmallStyled } from './style';
+import { SocialStyled, SocialSmallStyled } from './styles';
 
 interface Props {
   href: string;

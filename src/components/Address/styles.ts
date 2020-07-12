@@ -27,6 +27,7 @@ const AddressStyled = styled.address`
 
   & > p {
     margin: 6px;
+    color: white;
   }
 
   &::before {

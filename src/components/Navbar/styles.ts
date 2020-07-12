@@ -42,10 +42,10 @@ const Navbar = styled.nav`
   height: 100%;
   top: 0;
   left: 0;
-  background: #eeeeee;
+  background: ${props => props.theme.backgrounds.primary};
 
   & a {
-    color: black;
+    color: ${props => props.theme.paragraph.primary};
     font-weight: bold;
   }
 `;
@@ -69,6 +69,7 @@ const NavbarExtended = styled(Navbar)<NavbarProps>`
     text-transform: capitalize;
     text-decoration: none;
     border-radius: 100px;
+    transition: color 0.2s cubic-bezier(0.5, 0, 0.5, 2);
 
     &::after {
       content: '';
@@ -77,7 +78,7 @@ const NavbarExtended = styled(Navbar)<NavbarProps>`
       position: absolute;
       width: 100%;
       height: 100%;
-      background: #f37121;
+      background: ${props => props.theme.button.primary};
       top: 0;
       left: 0;
       border-radius: 100px;
@@ -86,6 +87,7 @@ const NavbarExtended = styled(Navbar)<NavbarProps>`
     }
 
     &:hover {
+      color: ${props => props.theme.button.primaryColor};
       &::after {
         transform: scale(1);
       }
@@ -129,7 +131,7 @@ const Line = styled.div`
   width: 100%;
   height: 2px;
   display: block;
-  background: black;
+  background: ${props => props.theme.paragraph.primary};
   position: absolute;
 `;
 
@@ -158,12 +160,11 @@ const ContentWrapped = styled.div<ContentWrappedProps>`
   /* 108px = 36px button * 3 */
   /* max-width: calc(100vw - 108px); */
   height: 100vh;
-  background: #eeeeee;
+  background: ${props => props.theme.backgrounds.primary};
   border-right: 2px solid rgba(0, 0, 0, 0.6);
   top: 0;
   left: 0;
   overflow-y: auto;
-  color: #eeeeee;
   transition: transform 0.2s ease;
   transform: ${props =>
     props.isClicked ? 'translate(0%, 0)' : 'translate(-100%, 0)'};

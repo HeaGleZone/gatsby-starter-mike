@@ -28,12 +28,12 @@ const SocialStyled = styled.a<SocialStyledProps>`
   }
 
   &::before {
-    background: white;
+    background: ${props => props.theme.backgrounds.secondary};
     transform: translate3d(0, 0, -1px);
   }
 
   &::after {
-    background: black;
+    background: ${props => props.theme.paragraph.secondary};
     opacity: 0.1;
     transition: transform 0.2s ease;
     transform: translate3d(-6%, 6%, -2px);

@@ -9,19 +9,19 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     width: 100%;
-    background: #eeeeee;
-    color: ${props => props.theme.colors.primary};
+    background:${props => props.theme.backgrounds.primary};
+    color: ${props => props.theme.paragraph.primary};
     overflow-y: auto;
   }
 
   a, p, li {
     font-size: 18px;
     line-height: 1.6em;   
-    color: ${props => props.theme.colors.primary};
+    color: ${props => props.theme.paragraph.primary};
   }
 
   h1, h2, h3, h4, h5, h6 {    
-    color: ${props => props.theme.colors.secondary};
+    color: ${props => props.theme.headline.primary};
   }
 
   h1 {
@@ -49,6 +49,10 @@ const GlobalStyle = createGlobalStyle`
     & > section {
       margin-bottom: 80px;
     }
+
+    & > section:last-child {
+      margin-bottom: 0;
+    }
   }
 
   section {
@@ -57,27 +61,40 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    background: ${props => props.theme.backgrounds.primary};
+    background: ${props => props.theme.backgrounds.secondary};
     box-sizing: border-box;
     padding: 40px;
+
+    & a, p, li {
+      color: ${props => props.theme.paragraph.primary};
+    }
+
+    & h1, h2, h3, h4, h5, h6 {    
+      color: ${props => props.theme.headline.secondary};
+    }
   }  
 
   section.transparent {
     background: transparent;
-    
-    & a, p, li {
-      color: ${props => props.theme.colors.primaryAlternative};
-    }
-
-    & h1, h2, h3, h4, h5, h6 {    
-      color: ${props => props.theme.colors.secondaryAlternative};
-    }
   }
 
   .section-title {
-    color: ${props => props.theme.colors.secondaryAlternative};
+    color: ${props => props.theme.headline.primary};
     text-align: center;
-    margin: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 0px 0 20px 0;
+  }
+
+  .section-title ~ .secondary {
+    padding: 80px 0 20px 0;
+    background: ${props => props.theme.backgrounds.secondary};
+    color: ${props => props.theme.headline.secondary};
+
+    @media all and (max-width: 800px) {
+      padding: 60px 0 20px 0;
+    }
   }
 
   @media all and (max-width: 800px) {

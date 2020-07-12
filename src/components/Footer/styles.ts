@@ -10,7 +10,6 @@ interface LogoProps {
 const FooterStyled = styled.footer`
   padding: 40px;
   background: rgb(20, 20, 20);
-  margin-top: -80px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -24,7 +23,8 @@ const FooterStyled = styled.footer`
     flex-direction: column;
 
     & p,
-    a {
+    a,
+    h3 {
       color: rgba(255, 255, 255, 0.9);
     }
 
@@ -38,7 +38,6 @@ const FooterStyled = styled.footer`
   }
 
   @media all and (max-width: 800px) {
-    margin-top: -60px;
     padding: 30px;
 
     flex-direction: column;

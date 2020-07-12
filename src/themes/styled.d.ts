@@ -2,17 +2,32 @@ import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    colors: {
+    paragraph: {
       primary: string;
-      primaryAlternative: string;
       secondary: string;
-      secondaryAlternative: string;
-      links: string;
+    };
+
+    headline: {
+      primary: string;
+      secondary: string;
+    };
+
+    button: {
+      primary: string;
+      primaryColor: string;
+      secondary: string;
+      secondaryColor: string;
     };
 
     backgrounds: {
       primary: string;
       secondary: string;
+    };
+
+    card: {
+      background: string;
+      paragraph: string;
+      heading: string;
     };
 
     linearGradients: {

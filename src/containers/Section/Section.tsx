@@ -6,7 +6,7 @@ interface Props {
 
 const Section: React.FC<Props> = ({ title, children }) => (
   <>
-    {title && <h2 className="section-title">{title}</h2>}
+    {title && <h2 className="section-title secondary">{title}</h2>}
     <section>{children}</section>
   </>
 );

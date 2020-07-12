@@ -70,7 +70,7 @@ const Separator = styled.hr`
   width: 90%;
   height: 1px;
   margin: 0;
-  background: ${props => props.theme.backgrounds.primary};
+  background: ${props => props.theme.headline.primary};
   opacity: 0.4;
   align-self: center;
 

@@ -35,14 +35,14 @@ const ContactStyled = styled.a`
 const IconContainer = styled.div`
   display: block;
   position: relative;
-  background: white;
+  background: ${props => props.theme.backgrounds.primary};
   width: 160px;
   height: 160px;
   border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${props => props.theme.backgrounds.primary};
+  color: ${props => props.theme.headline.primary};
   font-size: 100px;
 
   @media all and (max-width: 800px) {

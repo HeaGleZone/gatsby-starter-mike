@@ -11,12 +11,12 @@ const HeroStyled = styled.div`
   text-align: center;
   box-sizing: border-box;
   padding: 10px;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 
   background-image: ${props => props.theme.linearGradients.primary};
 
   & h1 {
-    color: white;
+    color: ${props => props.theme.headline.primary};
   }
 
   & h2 {
@@ -26,7 +26,7 @@ const HeroStyled = styled.div`
 
   @media all and (max-width: 800px) {
     min-height: calc(100vh - 50px);
-    margin-bottom: 40px;
+    margin-bottom: 60px;
   }
 `;
 

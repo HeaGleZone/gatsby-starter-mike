@@ -2,6 +2,7 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import { mainTheme } from '../../themes/main-theme';
+import { secondaryTheme } from '../../themes/secondary-theme';
 
 import HeroContent from './HeroContent';
 
@@ -25,7 +26,7 @@ const Layout: React.FC<Props> = ({
   children,
   showHero = defaultProps.showHero,
 }) => (
-  <ThemeProvider theme={mainTheme}>
+  <ThemeProvider theme={secondaryTheme}>
     <GlobalStyle />
     <header>
       <Navbar logoSrc={logoImg} />

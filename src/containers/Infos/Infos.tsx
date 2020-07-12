@@ -4,7 +4,7 @@ import { InfosStyled } from './styles';
 
 const Infos: React.FC = ({ children }) => (
   <>
-    <h2 className="section-title">Let's meet</h2>
+    <h2 className="section-title secondary">Let's meet</h2>
     <InfosStyled>{children}</InfosStyled>
   </>
 );
