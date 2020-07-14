@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import { mainTheme } from '../../themes/main-theme';
@@ -8,6 +8,8 @@ import HeroContent from './HeroContent';
 
 import '../../themes/index.css';
 import GlobalStyle from '../../themes/global-style';
+
+import { useTheme } from '../../hooks/useTheme';
 
 import { Navbar, Footer } from '../../components';
 
@@ -25,16 +27,27 @@ const defaultProps = {
 const Layout: React.FC<Props> = ({
   children,
   showHero = defaultProps.showHero,
-}) => (
-  <ThemeProvider theme={secondaryTheme}>
-    <GlobalStyle />
-    <header>
-      <Navbar logoSrc={logoImg} />
-      {showHero && <HeroContent />}
-    </header>
-    <main>{children}</main>
-    <Footer logoSrc={logoImg} logoBackground="white"></Footer>
-  </ThemeProvider>
-);
+}) => {
+  const [currentTheme, setCurrentTheme] = useState() || useTheme();
+  const theme = useTheme(currentTheme);
+
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <header
+        onClick={() =>
+          currentTheme === 'main'
+            ? setCurrentTheme('dark')
+            : setCurrentTheme('main')
+        }
+      >
+        <Navbar logoSrc={logoImg} />
+        {showHero && <HeroContent />}
+      </header>
+      <main>{children}</main>
+      <Footer logoSrc={logoImg} logoBackground="white"></Footer>
+    </ThemeProvider>
+  );
+};
 
 export default Layout;
