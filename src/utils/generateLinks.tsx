@@ -3,15 +3,18 @@ import { Link } from 'gatsby';
 
 import { useNavbarlinks } from '../queries/useNavbarLinks';
 
-export const generateLinks = () => {
+export const generateLinks: React.FC = () => {
   interface Link {
     path: string;
     name: string;
+    id: string;
   }
 
   const links = useNavbarlinks();
 
-  return React.Children.toArray(
-    links.map(({ path, name }: Link) => <Link to={path}>{name}</Link>)
-  );
+  return links.map(({ path, name, id }: Link) => (
+    <Link key={id} to={path}>
+      {name}
+    </Link>
+  ));
 };

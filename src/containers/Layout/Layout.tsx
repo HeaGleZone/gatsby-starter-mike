@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
+import { DefaultTheme } from 'styled-components';
 import { ThemeProvider } from 'styled-components';
-
-import { mainTheme } from '../../themes/main-theme';
-import { secondaryTheme } from '../../themes/secondary-theme';
 
 import HeroContent from './HeroContent';
 
@@ -28,8 +26,9 @@ const Layout: React.FC<Props> = ({
   children,
   showHero = defaultProps.showHero,
 }) => {
-  const [currentTheme, setCurrentTheme] = useState() || useTheme();
-  const theme = useTheme(currentTheme);
+  const [currentTheme, setCurrentTheme] =
+    useState<'main' | 'dark' | undefined>(undefined) || useTheme();
+  const theme: DefaultTheme = useTheme(currentTheme);
 
   return (
     <ThemeProvider theme={theme}>

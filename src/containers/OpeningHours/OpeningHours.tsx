@@ -8,24 +8,27 @@ interface Props {
   title?: string;
 }
 interface OpeningHours {
+  id: string;
   day: string;
   hours: string[];
 }
 
 const OpeningHours: React.FC<Props> = ({ title = 'Opening Hours' }) => {
-  const opening_hours: OpeningHours[] = useOpeningHours();
+  const openingHours: OpeningHours[] = useOpeningHours();
 
   const generateTimeTable = () =>
     React.Children.toArray(
-      opening_hours.map(({ day, hours }: OpeningHours) => (
+      openingHours.map(({ day, hours, id }: OpeningHours) => (
         <>
-          <Day>
+          <Day key={id + '-day'}>
             <p>{day}</p>
             <Time>
-              {React.Children.toArray(hours.map(hour => <p>{hour}</p>))}
+              {hours.map(hour => (
+                <p key={id + hour}>{hour}</p>
+              ))}
             </Time>
           </Day>
-          <Separator />
+          <Separator key={id + '-separator'} />
         </>
       ))
     );

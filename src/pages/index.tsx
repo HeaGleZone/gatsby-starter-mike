@@ -3,7 +3,7 @@ import React from 'react';
 import { ServiceCard, Contact, Address } from '../components/';
 import { Layout, Socials, Section, OpeningHours, Infos } from '../containers/';
 
-const IndexPage = () => (
+const IndexPage: React.FC = () => (
   <Layout showHero>
     <Socials />
     <Infos>

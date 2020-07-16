@@ -7,10 +7,10 @@ const doSomething = () => {
   alert('!');
 };
 
-const HeroContent = () => (
+const HeroContent: React.FC = () => (
   <Hero>
-    <h1>Look, I'm a Website!</h1>
-    <h2>Feelin' good, mate 👍.</h2>
+    <h1>Look, I&apos;m a Website!</h1>
+    <h2>Feelin&apos; good, mate 👍.</h2>
     <ButtonGroup>
       <Button
         onClick={doSomething}
