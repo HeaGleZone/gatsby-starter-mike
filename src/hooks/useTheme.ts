@@ -18,8 +18,8 @@ export const useTheme = (newTheme?: 'main' | 'dark'): DefaultTheme => {
 
   function getSavedTheme() {
     return typeof window !== undefined
-      ? window.localStorage.getItem('theme')
-      : 'main';
+      ? 'main'
+      : window.localStorage.getItem('theme');
   }
 
   useEffect(() => {
