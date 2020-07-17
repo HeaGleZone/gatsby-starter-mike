@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SocialStyled, SocialSmallStyled } from './styles';
+import { SocialStyled } from './styles';
 
 interface Props {
   href: string;
@@ -8,26 +8,14 @@ interface Props {
   isSmall?: boolean;
 }
 
-const Social: React.FC<Props> = ({ href, image, isSmall }) => {
-  if (isSmall) {
-    return (
-      <SocialSmallStyled
-        href={href}
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-        image={image}
-      />
-    );
-  }
-
-  return (
-    <SocialStyled
-      href={href}
-      rel="nofollow noopener noreferrer"
-      target="_blank"
-      image={image}
-    />
-  );
-};
+const Social: React.FC<Props> = ({ href, image, isSmall = false }) => (
+  <SocialStyled
+    href={href}
+    rel="nofollow noopener noreferrer"
+    target="_blank"
+    image={image}
+    isSmall={isSmall}
+  />
+);
 
 export default Social;
