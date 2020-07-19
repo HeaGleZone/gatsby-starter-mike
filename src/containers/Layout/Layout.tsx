@@ -9,7 +9,7 @@ import GlobalStyle from '../../themes/global-style';
 
 import { useTheme } from '../../hooks/useTheme';
 
-import { Navbar, Footer } from '../../components';
+import { Navbar, Footer, ThemeModal } from '../../components';
 
 import logoImg from '../../images/gatsby.png';
 
@@ -26,21 +26,30 @@ const Layout: React.FC<Props> = ({
   children,
   showHero = defaultProps.showHero,
 }) => {
-  const [currentTheme, setCurrentTheme] =
-    useState<'main' | 'dark' | undefined>(undefined) || useTheme();
-  const theme: DefaultTheme = useTheme(currentTheme);
+  const [showThemeModal, setThemeModalState] = useState<boolean>(false);
+  const [currentTheme, setCurrentTheme] = useState<string>(
+    useTheme().themeName
+  );
+  const theme: DefaultTheme = useTheme(currentTheme).theme;
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <header
-        onClick={() =>
-          currentTheme === 'main'
-            ? setCurrentTheme('dark')
-            : setCurrentTheme('main')
-        }
-      >
-        <Navbar logoSrc={logoImg} />
+      <header>
+        {showThemeModal && (
+          <ThemeModal
+            changeTheme={(newTheme: string): void => {
+              setCurrentTheme(newTheme);
+            }}
+            setVisibility={(): void => {
+              setThemeModalState(false);
+            }}
+          />
+        )}
+        <Navbar
+          logoSrc={logoImg}
+          openThemesModal={() => setThemeModalState(true)}
+        />
         {showHero && <HeroContent />}
       </header>
       <main>{children}</main>

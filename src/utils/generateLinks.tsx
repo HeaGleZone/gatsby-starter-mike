@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 
 import { useNavbarlinks } from '../queries/useNavbarLinks';
 
-export const generateLinks: React.FC = () => {
+export const generateLinks = (): any => {
   interface Link {
     path: string;
     name: string;

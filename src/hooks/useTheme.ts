@@ -1,25 +1,26 @@
 import { useEffect, useState } from 'react';
 import { DefaultTheme } from 'styled-components';
 
-import { mainTheme } from '../themes/main-theme';
-import { secondaryTheme } from '../themes/secondary-theme';
+import themes from '../themes/themes';
 
-interface Theme {
-  [key: string]: DefaultTheme;
+interface UseTheme {
+  (newTheme?: string): {
+    theme: DefaultTheme;
+    themeName: string;
+  };
 }
 
-const themes: Theme = {
-  main: secondaryTheme,
-  dark: mainTheme,
-};
+export const useTheme: UseTheme = newTheme => {
+  const [currentTheme, setTheme] = useState<string>(getSavedTheme());
 
-export const useTheme = (newTheme?: 'main' | 'dark'): DefaultTheme => {
-  const [currentTheme, setTheme] = useState(getSavedTheme() || 'main');
+  function getSavedTheme(): string {
+    const fetchedTheme =
+      typeof window !== `undefined`
+        ? window.localStorage.getItem('theme')
+        : 'main';
 
-  function getSavedTheme() {
-    return typeof window !== undefined
-      ? 'main'
-      : window.localStorage.getItem('theme');
+    // Checks if the theme inside local storage exists
+    return themes[fetchedTheme || ''] && fetchedTheme ? fetchedTheme : 'main';
   }
 
   useEffect(() => {
@@ -29,5 +30,8 @@ export const useTheme = (newTheme?: 'main' | 'dark'): DefaultTheme => {
     }
   }, [newTheme]);
 
-  return themes[currentTheme];
+  return {
+    theme: themes[currentTheme],
+    themeName: currentTheme,
+  };
 };

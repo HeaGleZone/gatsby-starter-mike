@@ -33,6 +33,10 @@ const mainTheme: DefaultTheme = {
     primary:
       'linear-gradient(to left bottom, #b8c1ec, #9098bf, #6a7095, #454b6c, #232946);',
   },
+
+  alerts: {
+    danger: '#F56565',
+  },
 };
 
 export { mainTheme };

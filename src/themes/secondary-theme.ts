@@ -32,6 +32,10 @@ const secondaryTheme: DefaultTheme = {
   linearGradients: {
     primary: 'linear-gradient(to right, #8e9eab, #eef2f3)',
   },
+
+  alerts: {
+    danger: '#F56565',
+  },
 };
 
 export { secondaryTheme };

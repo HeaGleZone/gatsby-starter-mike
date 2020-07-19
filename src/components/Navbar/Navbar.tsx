@@ -1,17 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { navigate } from 'gatsby';
+import { IoMdSettings } from 'react-icons/io';
 
 import { NavbarStyled, NavbarExtended, Logo } from './styles';
 
 import { generateLinks } from '../../utils/generateLinks';
 import NavbarWrapped from './NavbarWrapped';
 
-interface Props {
+interface ThemeButtonProps {
+  openThemesModal: React.MouseEventHandler<SVGElement>;
+}
+
+interface NavbarProps extends ThemeButtonProps {
   logoSrc?: string;
 }
 
-// TODO Add Settings Menu for theme styling
-const Navbar: React.FC<Props> = ({ logoSrc }) => {
+const ThemeButton: React.FC<ThemeButtonProps> = ({ openThemesModal }) => (
+  <IoMdSettings onClick={openThemesModal} />
+);
+
+const Navbar: React.FC<NavbarProps> = ({ logoSrc, openThemesModal }) => {
   const [isWrapped, setMenuSize] = useState(false);
 
   // Check state before any zoom
@@ -59,6 +67,7 @@ const Navbar: React.FC<Props> = ({ logoSrc }) => {
           onClick={() => navigate('/')}
         />
         {generateLinks()}
+        <ThemeButton openThemesModal={openThemesModal} />
       </NavbarExtended>
 
       <NavbarWrapped
@@ -66,6 +75,7 @@ const Navbar: React.FC<Props> = ({ logoSrc }) => {
         id="navbar-wrapped"
         logoImg={logoSrc}
       >
+        <ThemeButton openThemesModal={openThemesModal} />
         {generateLinks()}
       </NavbarWrapped>
     </NavbarStyled>

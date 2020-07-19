@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { navigate } from 'gatsby';
 
 import {
   NavbarWrappedStyled,
@@ -21,7 +22,11 @@ const NavbarWrapped: React.FC<Props> = props => {
   return (
     <NavbarWrappedStyled {...props}>
       <DisableBodyScroll disableScroll={isOpen && !props.isHidden} />
-      <Logo isWrapped={true} image={props.logoImg} />
+      <Logo
+        isWrapped={true}
+        image={props.logoImg}
+        onClick={() => navigate('/')}
+      />
       <MenuButton isClicked={isOpen} onClick={() => setOpen(!isOpen)} />
       <ContentWrapped isClicked={isOpen} isHidden={props.isHidden}>
         {props.children}

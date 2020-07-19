@@ -33,5 +33,9 @@ declare module 'styled-components' {
     linearGradients: {
       primary: string;
     };
+
+    alerts: {
+      danger: string;
+    };
   }
 }

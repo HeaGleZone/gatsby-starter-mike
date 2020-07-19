@@ -60,6 +60,18 @@ const NavbarExtended = styled(Navbar)<NavbarProps>`
   align-items: center;
   z-index: ${props => (props.isHidden ? 100 : 200)};
 
+  & svg {
+    font-size: 28px;
+    margin: 0 20px;
+    vertical-align: middle;
+    transform: rotate(0deg);
+    transition: 0.2s ease transform;
+
+    &:hover {
+      transform: rotate(360deg);
+    }
+  }
+
   & a:not(#logo) {
     position: relative;
     padding: 0 20px;
@@ -173,6 +185,12 @@ const ContentWrapped = styled.div<ContentWrappedProps>`
   justify-content: flex-start;
   opacity: ${props => (props.isHidden ? 0 : 1)};
   z-index: 200;
+
+  & svg {
+    font-size: 28px;
+    margin: 1em auto 0 auto;
+    vertical-align: middle;
+  }
 
   & a {
     font-size: 24px;
