@@ -7,6 +7,7 @@ import Address from './Address/Address';
 import Footer from './Footer/Footer';
 import Modal from './Modal/Modal';
 import ThemeModal from './ThemeModal/ThemeModal';
+import BackToTop from './BackToTop/BackToTop';
 
 export {
   Navbar,
@@ -18,4 +19,5 @@ export {
   Footer,
   Modal,
   ThemeModal,
+  BackToTop,
 };

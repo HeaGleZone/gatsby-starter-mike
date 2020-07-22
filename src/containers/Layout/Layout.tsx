@@ -9,7 +9,7 @@ import GlobalStyle from '../../themes/global-style';
 
 import { useTheme } from '../../hooks/useTheme';
 
-import { Navbar, Footer, ThemeModal } from '../../components';
+import { Navbar, Footer, ThemeModal, BackToTop } from '../../components';
 
 import logoImg from '../../images/gatsby.png';
 
@@ -37,6 +37,7 @@ const Layout: React.FC<Props> = ({
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
+      <BackToTop />
       <header>
         {showThemeModal && (
           <ThemeModal
