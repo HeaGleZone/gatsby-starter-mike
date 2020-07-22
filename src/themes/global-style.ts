@@ -5,6 +5,20 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Ubuntu', sans-serif;
   }
 
+  noscript {
+    display: block;
+    width: 100%;
+    background: #f44336;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+
+    & p {
+      color: white;
+      margin: 0;
+    }
+}
+
   body, html {
     margin: 0;
     padding: 0;

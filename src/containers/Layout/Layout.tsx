@@ -15,6 +15,7 @@ import logoImg from '../../images/gatsby.png';
 
 interface Props {
   showHero?: boolean;
+  noScriptMsg?: string;
 }
 
 const defaultProps = {
@@ -25,6 +26,7 @@ const defaultProps = {
 const Layout: React.FC<Props> = ({
   children,
   showHero = defaultProps.showHero,
+  noScriptMsg = 'JavaScript is disabled, theme changing and other functionalities may not work.',
 }) => {
   const [showThemeModal, setThemeModalState] = useState<boolean>(false);
   const [currentTheme, setCurrentTheme] = useState<string>(
@@ -50,6 +52,9 @@ const Layout: React.FC<Props> = ({
           logoSrc={logoImg}
           openThemesModal={() => setThemeModalState(true)}
         />
+        <noscript>
+          <p>{noScriptMsg}</p>
+        </noscript>
         {showHero && <HeroContent />}
       </header>
       <main>{children}</main>

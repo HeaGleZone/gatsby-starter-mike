@@ -9,7 +9,7 @@ interface ButtonProps {
 
 const ButtonStyled = styled.button<ButtonProps>`
   position: relative;
-  padding: 0.75em 2em;
+  padding: 18px 32px;
   background: ${props => props.styles.background};
   border-radius: 100px;
   outline: none;
@@ -23,7 +23,7 @@ const ButtonStyled = styled.button<ButtonProps>`
     position: relative;
     margin: 0;
     color: ${props => props.styles.color};
-    font-size: 24px;
+    font-size: 16pt;
   }
 
   &::before {
