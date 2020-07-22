@@ -56,6 +56,7 @@ const GlobalStyle = createGlobalStyle`
   main {
     position: relative;
     width: 100%;
+    min-height: calc(100vh - 453px);
     display: flex;
     flex-direction: column;
     align-items: center;

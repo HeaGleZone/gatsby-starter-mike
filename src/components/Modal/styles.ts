@@ -24,6 +24,7 @@ const Card = styled.div`
   background: ${props => props.theme.backgrounds.primary};
   color: ${props => props.theme.paragraph.primary};
   border-radius: 20px 20px 0 0;
+  box-shadow: 0 -10px 80px rgba(0, 0, 0, 0.6);
 
   @media all and (max-width: 800px) {
     width: 92vw;
