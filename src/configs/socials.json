@@ -1,30 +1,30 @@
 [
   {
     "link": "https://www.facebook.com/",
-    "image": "facebook.svg"
+    "image": "facebook"
   },
   {
     "link": "https://twitter.com/",
-    "image": "twitter.svg"
+    "image": "twitter"
   },
   {
     "link": "https://www.linkedin.com/",
-    "image": "linkedin.svg"
+    "image": "linkedin"
   },
   {
     "link": "https://www.instagram.com/",
-    "image": "instagram.svg"
+    "image": "instagram"
   },
   {
     "link": "https://www.tumblr.com/",
-    "image": "tumblr.svg"
+    "image": "tumblr"
   },
   {
     "link": "https://www.youtube.com/",
-    "image": "youtube.svg"
+    "image": "youtube"
   },
   {
     "link": "https://www.pinterest.com/",
-    "image": "pinterest.svg"
+    "image": "pinterest"
   }
 ]

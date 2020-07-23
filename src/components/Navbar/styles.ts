@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
+import { Link } from 'gatsby';
 
 // * Props
 interface NavbarProps {
@@ -210,7 +211,7 @@ const ContentWrapped = styled.div<ContentWrappedProps>`
   }
 `;
 
-const Logo = styled.div<LogoProps>`
+const Logo = styled(Link)<LogoProps>`
   min-width: ${props => (props.isWrapped ? '180px' : '300px')};
   height: 80%;
   position: ${props => (props.isWrapped ? 'absolute' : 'relative')};

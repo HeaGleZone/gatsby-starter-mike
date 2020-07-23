@@ -3,6 +3,7 @@ import React from 'react';
 import { Social } from '../components';
 
 import { useSocials } from '../queries/useSocials';
+import { useSvgImages } from '../queries/useSvgImages';
 
 interface DefaultSocialsProps {
   isSmall?: boolean;
@@ -30,5 +31,12 @@ export const DefaultSocials: React.FC<DefaultSocialsProps> = ({ isSmall }) => {
   return <>{generateSocialsElements()}</>;
 };
 
-export const loadSocialImage = (imageName: string): string =>
-  require(`../images/icons/${imageName}`);
+export const loadSocialImage = (imageName: string): string => {
+  const svgs: [any] = useSvgImages();
+
+  for (let i = 0; i < svgs.length; i++) {
+    if (svgs[i].name === imageName) return svgs[i].publicURL;
+  }
+
+  return svgs[0].publicURL || '';
+};

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { navigate } from 'gatsby';
 import { IoMdSettings } from 'react-icons/io';
 
 import { NavbarStyled, NavbarExtended, Logo } from './styles';
@@ -60,12 +59,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoSrc, openThemesModal }) => {
   return (
     <NavbarStyled>
       <NavbarExtended isHidden={isWrapped} id="navbar-extended">
-        <Logo
-          isWrapped={false}
-          id="logo"
-          image={logoSrc}
-          onClick={() => navigate('/')}
-        />
+        <Logo isWrapped={false} id="logo" image={logoSrc} to="/" />
         {generateLinks()}
         <ThemeButton openThemesModal={openThemesModal} />
       </NavbarExtended>
