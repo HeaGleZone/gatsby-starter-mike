@@ -8,18 +8,10 @@ import { Social } from '../../components';
 export const DefaultSocials: React.FC = () => {
   const socialsInfo = useSocials();
 
-  interface SocialInfo {
-    link: string;
-    image: string;
-  }
-
   const generateSocialsElements = () =>
     React.Children.toArray(
-      socialsInfo.map((socialInfo: SocialInfo) => (
-        <Social
-          href={socialInfo.link}
-          image={loadSocialImage(socialInfo.image)}
-        />
+      socialsInfo.map(({ image, link, id }) => (
+        <Social href={link} image={loadSocialImage(image)} key={id} />
       ))
     );
 

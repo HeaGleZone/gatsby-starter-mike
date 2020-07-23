@@ -7,18 +7,13 @@ import { useOpeningHours } from '../../queries/useOpeningHours';
 interface Props {
   title?: string;
 }
-interface OpeningHours {
-  id: string;
-  day: string;
-  hours: string[];
-}
 
 const OpeningHours: React.FC<Props> = ({ title = 'Opening Hours' }) => {
-  const openingHours: OpeningHours[] = useOpeningHours();
+  const openingHours = useOpeningHours();
 
   const generateTimeTable = () =>
     React.Children.toArray(
-      openingHours.map(({ day, hours, id }: OpeningHours) => (
+      openingHours.map(({ day, hours, id }) => (
         <>
           <Day key={id + '-day'}>
             <p>{day}</p>

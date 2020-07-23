@@ -12,14 +12,8 @@ interface DefaultSocialsProps {
 export const DefaultSocials: React.FC<DefaultSocialsProps> = ({ isSmall }) => {
   const socialsInfo = useSocials();
 
-  interface SocialInfo {
-    id: string;
-    link: string;
-    image: string;
-  }
-
   const generateSocialsElements = () =>
-    socialsInfo.map(({ id, link, image }: SocialInfo) => (
+    socialsInfo.map(({ id, link, image }) => (
       <Social
         key={id}
         href={link}
@@ -32,7 +26,7 @@ export const DefaultSocials: React.FC<DefaultSocialsProps> = ({ isSmall }) => {
 };
 
 export const loadSocialImage = (imageName: string): string => {
-  const svgs: [any] = useSvgImages();
+  const svgs = useSvgImages();
 
   for (let i = 0; i < svgs.length; i++) {
     if (svgs[i].name === imageName) return svgs[i].publicURL;

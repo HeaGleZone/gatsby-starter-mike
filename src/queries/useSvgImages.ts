@@ -1,6 +1,10 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-export const useSvgImages = (): any => {
+export const useSvgImages = (): {
+  id: string;
+  publicURL: string;
+  name: string;
+}[] => {
   const {
     allFile: { nodes },
   } = useStaticQuery(graphql`

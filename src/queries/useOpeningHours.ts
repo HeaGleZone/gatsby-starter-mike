@@ -1,6 +1,10 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-export const useOpeningHours = (): any => {
+export const useOpeningHours = (): {
+  id: string;
+  day: string;
+  hours: string[];
+}[] => {
   const {
     allOpeningHoursJson: { nodes },
   } = useStaticQuery(graphql`

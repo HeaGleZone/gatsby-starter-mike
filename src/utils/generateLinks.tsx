@@ -4,15 +4,9 @@ import { Link } from 'gatsby';
 import { useNavbarlinks } from '../queries/useNavbarLinks';
 
 export const generateLinks = (): any => {
-  interface Link {
-    path: string;
-    name: string;
-    id: string;
-  }
-
   const links = useNavbarlinks();
 
-  return links.map(({ path, name, id }: Link) => (
+  return links.map(({ path, name, id }) => (
     <Link key={id} to={path}>
       {name}
     </Link>
