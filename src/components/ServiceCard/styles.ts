@@ -40,7 +40,8 @@ const Image = styled.div<ImageProps>`
   border-radius: 100%;
   margin: 40px 75px;
   z-index: 1;
-  background-image: url(${props => props.image});
+  background-image: ${props =>
+    props.image !== 'none' ? `url(${props.image})` : 'none'};
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

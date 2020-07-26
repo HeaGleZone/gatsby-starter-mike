@@ -10,19 +10,19 @@ import {
 } from './styles';
 
 interface Props {
-  name: string;
-  anchorTo: string;
-  leftInfo: string;
-  rightInfo: string;
-  image: string;
+  name?: string;
+  anchorTo?: string;
+  leftInfo?: string;
+  rightInfo?: string;
+  image?: string;
 }
 
 const ServiceCard: React.FC<Props> = ({
-  name,
-  anchorTo,
-  leftInfo,
-  rightInfo,
-  image,
+  name = 'Some Service',
+  anchorTo = '/',
+  leftInfo = '1 €',
+  rightInfo = '1 h',
+  image = 'none',
 }) => (
   <ServiceCardStyled>
     <Image image={image} />
