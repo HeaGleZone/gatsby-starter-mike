@@ -9,13 +9,14 @@ import GlobalStyle from '../../themes/global-style';
 
 import { useTheme } from '../../hooks/useTheme';
 
-import { Navbar, Footer, ThemeModal, BackToTop } from '../../components';
+import { Navbar, Footer, ThemeModal, BackToTop, SEO } from '../../components';
 
 import logoImg from '../../images/gatsby.png';
 
 interface Props {
   showHero?: boolean;
   noScriptMsg?: string;
+  SEOComponent?: React.ReactElement;
 }
 
 const defaultProps = {
@@ -27,6 +28,7 @@ const Layout: React.FC<Props> = ({
   children,
   showHero = defaultProps.showHero,
   noScriptMsg = 'JavaScript is disabled, theme changing and other functionalities may not work.',
+  SEOComponent,
 }) => {
   const [showThemeModal, setThemeModalState] = useState<boolean>(false);
   const [currentTheme, setCurrentTheme] = useState<string>(
@@ -36,6 +38,7 @@ const Layout: React.FC<Props> = ({
 
   return (
     <ThemeProvider theme={theme}>
+      {SEOComponent || <SEO />}
       <GlobalStyle />
       <BackToTop />
       <header>

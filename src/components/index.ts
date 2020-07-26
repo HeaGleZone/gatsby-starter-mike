@@ -8,6 +8,7 @@ import Footer from './Footer/Footer';
 import Modal from './Modal/Modal';
 import ThemeModal from './ThemeModal/ThemeModal';
 import BackToTop from './BackToTop/BackToTop';
+import SEO from './SEO/SEO';
 
 export {
   Navbar,
@@ -20,4 +21,5 @@ export {
   Modal,
   ThemeModal,
   BackToTop,
+  SEO,
 };

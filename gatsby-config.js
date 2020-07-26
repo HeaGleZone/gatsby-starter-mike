@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Mike Starter',
+    sitename: 'Gatsby Mike Starter',
+    siteurl: 'localhost:8000',
     description:
       'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
     author: '@gatsbyjs',
@@ -61,5 +63,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-preact',
+    'gatsby-plugin-react-helmet',
   ],
 };
