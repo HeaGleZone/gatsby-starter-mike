@@ -1,12 +1,27 @@
 import React from 'react';
 
+import { Button, NotFoundImage } from '../components/';
 import { Layout } from '../containers/';
+import { useRandomPage } from '../queries/useRandomPage';
 
-const NotFoundPage: React.FC = () => (
-  <Layout>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
-);
+const NotFoundPage: React.FC = () => {
+  const randomPage = useRandomPage();
+
+  return (
+    <Layout>
+      <h1>Page Not Found</h1>
+      <p>
+        Ops! Seems like you&apos;re lost! <br />
+        Feel free to check some of this links out.
+      </p>
+      <hr />
+      <div className="centered-vertical">
+        <Button>Go back to the Homepage</Button>
+        <Button anchorTo={randomPage}>Visit a random page</Button>
+      </div>
+      <NotFoundImage />
+    </Layout>
+  );
+};
 
 export default NotFoundPage;

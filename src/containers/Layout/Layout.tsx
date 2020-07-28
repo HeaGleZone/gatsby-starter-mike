@@ -17,6 +17,7 @@ interface Props {
   showHero?: boolean;
   noScriptMsg?: string;
   SEOComponent?: React.ReactElement;
+  allowPadding?: boolean;
 }
 
 const defaultProps = {
@@ -29,6 +30,7 @@ const Layout: React.FC<Props> = ({
   showHero = defaultProps.showHero,
   noScriptMsg = 'JavaScript is disabled, theme changing and other functionalities may not work.',
   SEOComponent,
+  allowPadding = true,
 }) => {
   const [showThemeModal, setThemeModalState] = useState<boolean>(false);
   const [currentTheme, setCurrentTheme] = useState<string>(
@@ -61,7 +63,9 @@ const Layout: React.FC<Props> = ({
         </noscript>
         {showHero && <HeroContent />}
       </header>
-      <main>{children}</main>
+      <main className={allowPadding ? 'general-content' : 'home-content'}>
+        {children}
+      </main>
       <Footer logoSrc={logoImg} logoBackground="white"></Footer>
     </ThemeProvider>
   );

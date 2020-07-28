@@ -9,6 +9,8 @@ import Modal from './Modal/Modal';
 import ThemeModal from './ThemeModal/ThemeModal';
 import BackToTop from './BackToTop/BackToTop';
 import SEO from './SEO/SEO';
+import Image from './Image/Image';
+import NotFoundImage from './NotFoundImage/NotFoundImage';
 
 export {
   Navbar,
@@ -22,4 +24,6 @@ export {
   ThemeModal,
   BackToTop,
   SEO,
+  Image,
+  NotFoundImage,
 };

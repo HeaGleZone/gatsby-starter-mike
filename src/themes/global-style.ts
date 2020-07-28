@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-y: auto;
   }
 
-  a, p, li {
+  a, p, li, ul, ol, td, th {
     font-size: 18px;
     line-height: 1.6em;   
     color: ${props => props.theme.paragraph.primary};
@@ -68,6 +68,28 @@ const GlobalStyle = createGlobalStyle`
     & > section:last-child {
       margin-bottom: 0;
     }
+    
+    & > a,
+    & > p,
+    & > li,
+    & > ul,
+    & > ol,
+    & > h2,
+    & > h3,
+    & > h4, 
+    & > h5,
+    & > h6 {
+      width: 100%
+    }
+  }
+
+  main.home-content {
+    padding: 0px;
+  }
+
+  main.general-content {
+    box-sizing: border-box;
+    padding: 0 40px;
   }
 
   section {
@@ -93,6 +115,19 @@ const GlobalStyle = createGlobalStyle`
     background: transparent;
   }
 
+  hr {
+    width: 100%;
+    background: ${props => props.theme.backgrounds.secondary};
+    opacity: 0.2;
+  }
+
+  .centered-vertical {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .section-title {
     color: ${props => props.theme.headline.primary};
     text-align: center;
@@ -106,10 +141,6 @@ const GlobalStyle = createGlobalStyle`
     padding: 80px 0 20px 0;
     background: ${props => props.theme.backgrounds.secondary};
     color: ${props => props.theme.headline.secondary};
-
-    @media all and (max-width: 800px) {
-      padding: 60px 0 20px 0;
-    }
   }
 
   @media all and (max-width: 800px) {
@@ -133,8 +164,17 @@ const GlobalStyle = createGlobalStyle`
       }
     }
 
+    main.general-content {
+      box-sizing: border-box;
+      padding: 20px;
+    }
+
     section.socials {
       padding: 0px;
+    }
+
+    .section-title ~ .secondary {
+      padding: 60px 0 20px 0;
     }
   }
 `;

@@ -4,7 +4,7 @@ import { ServiceCard, Contact, Address } from '../components/';
 import { Layout, Socials, Section, OpeningHours, Infos } from '../containers/';
 
 const IndexPage: React.FC = () => (
-  <Layout showHero>
+  <Layout showHero allowPadding={false}>
     <Socials />
     <Infos>
       <section>

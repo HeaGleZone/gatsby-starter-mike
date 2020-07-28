@@ -41,6 +41,7 @@ const SEO: React.FC<Props> = ({
 
   return (
     <Helmet
+      defer={false}
       htmlAttributes={{
         lang,
       }}

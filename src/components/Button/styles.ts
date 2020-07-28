@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface ButtonProps {
-  styles: {
+  styles?: {
     color: string;
     background: string;
   };
@@ -10,7 +10,8 @@ interface ButtonProps {
 const ButtonStyled = styled.button<ButtonProps>`
   position: relative;
   padding: 18px 32px;
-  background: ${props => props.styles.background};
+  background: ${props =>
+    props.styles ? props.styles.background : props.theme.button.primary};
   border-radius: 100px;
   outline: none;
   border: none;
@@ -22,7 +23,8 @@ const ButtonStyled = styled.button<ButtonProps>`
   & p {
     position: relative;
     margin: 0;
-    color: ${props => props.styles.color};
+    color: ${props =>
+      props.styles ? props.styles.color : props.theme.button.primaryColor};
     font-size: 16pt;
   }
 
@@ -45,6 +47,10 @@ const ButtonStyled = styled.button<ButtonProps>`
     &::before {
       clip-path: circle(100%);
     }
+  }
+
+  @media all and (max-width: 800px) {
+    padding: 18px 22px;
   }
 `;
 

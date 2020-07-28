@@ -2,6 +2,7 @@
 import React from 'react';
 import { PageProps, Link, graphql } from 'gatsby';
 
+import { Image } from '../components/';
 import { Layout } from '../containers/';
 
 type DataProps = {
@@ -34,6 +35,17 @@ const UsingTypescript: React.FC<PageProps<DataProps>> = ({ data, path }) => (
       .
     </p>
     <Link to="/">Go back to the homepage</Link>
+    <ul>
+      <li>Something</li>
+      <li>Something Else</li>
+      <li>Something more</li>
+    </ul>
+    <ol>
+      <li>Something</li>
+      <li>Something Else</li>
+      <li>Something more</li>
+    </ol>
+    <Image filename="city.jpg" alt="" height="173px" width="300px" />
   </Layout>
 );
 

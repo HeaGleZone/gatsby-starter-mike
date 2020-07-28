@@ -13,19 +13,22 @@ interface Props {
   styles?: Styles;
 }
 
-const Button: React.FC<Props> = ({ children, onClick, anchorTo, styles }) => {
+const Button: React.FC<Props> = ({
+  children,
+  onClick,
+  anchorTo = '/',
+  styles,
+}) => {
   const moveToPage = () => {
     navigate(anchorTo as string);
   };
-
-  const btnStyles: Styles = styles || { color: 'black', background: 'white' };
 
   // Check external links
   const isInternal: boolean = /^\/(?!\/)/.test(anchorTo as string);
 
   if (isInternal) {
     return (
-      <ButtonStyled onClick={onClick || moveToPage} styles={btnStyles}>
+      <ButtonStyled onClick={onClick || moveToPage} styles={styles}>
         <p>{children}</p>
       </ButtonStyled>
     );
@@ -33,7 +36,7 @@ const Button: React.FC<Props> = ({ children, onClick, anchorTo, styles }) => {
 
   return (
     <a href={anchorTo} target="_blank" rel="nofollow noopener noreferrer">
-      <ButtonStyled styles={btnStyles}>
+      <ButtonStyled styles={styles}>
         <p>{children}</p>
       </ButtonStyled>
     </a>
