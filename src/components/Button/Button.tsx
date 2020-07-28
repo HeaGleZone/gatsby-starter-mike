@@ -1,5 +1,5 @@
 import React from 'react';
-import { navigate } from 'gatsby';
+import { Link } from 'gatsby';
 
 import { ButtonStyled } from './styles';
 
@@ -19,18 +19,24 @@ const Button: React.FC<Props> = ({
   anchorTo = '/',
   styles,
 }) => {
-  const moveToPage = () => {
-    navigate(anchorTo as string);
-  };
-
   // Check external links
-  const isInternal: boolean = /^\/(?!\/)/.test(anchorTo as string);
+  const isInternal: boolean = /^\/(?!\/)/.test(anchorTo);
+
+  if (onClick) {
+    return (
+      <ButtonStyled onClick={onClick} styles={styles}>
+        <p>{children}</p>
+      </ButtonStyled>
+    );
+  }
 
   if (isInternal) {
     return (
-      <ButtonStyled onClick={onClick || moveToPage} styles={styles}>
-        <p>{children}</p>
-      </ButtonStyled>
+      <Link to={anchorTo}>
+        <ButtonStyled styles={styles}>
+          <p>{children}</p>
+        </ButtonStyled>
+      </Link>
     );
   }
 
