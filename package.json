@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "gatsby-starter-mike",
   "private": true,
   "description": "Gatsby Starter with TypeScript support - js-styling with styled-components.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Michael Armani",
   "dependencies": {
     "@types/styled-components": "^5.1.0",
     "babel-plugin-styled-components": "^1.10.7",
