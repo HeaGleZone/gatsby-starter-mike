@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { IoMdSettings } from 'react-icons/io';
 
 import { NavbarStyled, NavbarExtended, Logo } from './styles';
@@ -12,13 +12,18 @@ interface ThemeButtonProps {
 
 interface NavbarProps extends ThemeButtonProps {
   logoSrc?: string;
+  allowTheming?: boolean;
 }
 
 const ThemeButton: React.FC<ThemeButtonProps> = ({ openThemesModal }) => (
   <IoMdSettings onClick={openThemesModal} />
 );
 
-const Navbar: React.FC<NavbarProps> = ({ logoSrc, openThemesModal }) => {
+const Navbar: React.FC<NavbarProps> = ({
+  logoSrc,
+  openThemesModal,
+  allowTheming,
+}) => {
   const [isWrapped, setMenuSize] = useState(false);
 
   // Check state before any zoom
@@ -61,7 +66,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoSrc, openThemesModal }) => {
       <NavbarExtended isHidden={isWrapped} id="navbar-extended">
         <Logo isWrapped={false} id="logo" image={logoSrc} to="/" />
         {generateLinks()}
-        <ThemeButton openThemesModal={openThemesModal} />
+        {allowTheming && <ThemeButton openThemesModal={openThemesModal} />}
       </NavbarExtended>
 
       <NavbarWrapped
@@ -69,11 +74,11 @@ const Navbar: React.FC<NavbarProps> = ({ logoSrc, openThemesModal }) => {
         id="navbar-wrapped"
         logoImg={logoSrc}
       >
-        <ThemeButton openThemesModal={openThemesModal} />
+        {allowTheming && <ThemeButton openThemesModal={openThemesModal} />}
         {generateLinks()}
       </NavbarWrapped>
     </NavbarStyled>
   );
 };
 
-export default Navbar;
+export default memo(Navbar);

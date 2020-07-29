@@ -13,6 +13,8 @@ import { Navbar, Footer, ThemeModal, BackToTop, SEO } from '../../components';
 
 import logoImg from '../../images/gatsby.png';
 
+import themes from '../../themes/themes';
+
 interface Props {
   showHero?: boolean;
   noScriptMsg?: string;
@@ -24,6 +26,8 @@ const defaultProps = {
   showHero: false,
   mainFlex: 4,
 };
+
+const isWebsiteThemed = (): boolean => Object.keys(themes).length > 1;
 
 const Layout: React.FC<Props> = ({
   children,
@@ -57,6 +61,7 @@ const Layout: React.FC<Props> = ({
         <Navbar
           logoSrc={logoImg}
           openThemesModal={() => setThemeModalState(true)}
+          allowTheming={isWebsiteThemed()}
         />
         <noscript>
           <p>{noScriptMsg}</p>

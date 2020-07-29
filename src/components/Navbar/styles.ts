@@ -191,6 +191,7 @@ const ContentWrapped = styled.div<ContentWrappedProps>`
     font-size: 28px;
     margin: 1em auto 0 auto;
     vertical-align: middle;
+    min-height: 28px;
   }
 
   & a {
