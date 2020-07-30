@@ -70,5 +70,66 @@ module.exports = {
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        createLinkInHead: true,
+        query: `
+        {
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+          allSitePage {
+            edges {
+              node {
+                path
+              }
+            }
+          }
+        }
+        `,
+        serialize: ({ site, allSitePage }) => {
+          const setPreferences = pathLink => {
+            const configs = {
+              '/': {
+                priority: 1,
+                changefreq: 'yearly',
+              },
+              '/blog/': {
+                priority: 1,
+                changefreq: 'weekly',
+              },
+            };
+
+            const isBlogPost = /^\/blog\/./.test(pathLink);
+            if (!configs[pathLink]) {
+              if (isBlogPost) {
+                return {
+                  priority: 0.7,
+                  changefreq: 'monthly',
+                };
+              } else {
+                return {
+                  priority: 0.7,
+                  changefreq: 'yearly',
+                };
+              }
+            }
+
+            return configs[pathLink];
+          };
+
+          return allSitePage.edges.map(({ node: { path } }) => {
+            return {
+              url: site.siteMetadata.siteUrl + path,
+              changefreq: setPreferences(path).changefreq,
+              priority: setPreferences(path).priority,
+            };
+          });
+        },
+      },
+    },
   ],
 };
