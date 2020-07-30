@@ -1,6 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+
+import { useSiteMetadata } from '../../queries/useSiteMetadata';
 
 interface Props {
   description?: string;
@@ -21,23 +22,8 @@ const SEO: React.FC<Props> = ({
   image,
   googleSiteVerification,
 }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-            sitename
-            siteurl
-          }
-        }
-      }
-    `
-  );
-
-  const metaDescription: string = description || site.siteMetadata.description;
+  const siteMetadata = useSiteMetadata();
+  const metaDescription: string = description || siteMetadata.description;
 
   return (
     <Helmet
@@ -48,7 +34,7 @@ const SEO: React.FC<Props> = ({
       title={
         title
           ? title.charAt(0).toUpperCase() + title.substring(1)
-          : site.siteMetadata.title
+          : siteMetadata.title
       }
       meta={[
         // ! SEO
@@ -85,11 +71,11 @@ const SEO: React.FC<Props> = ({
           property: 'og:image',
           content: image
             ? image
-            : site.siteMetadata.siteurl + '/default-social-image.png',
+            : siteMetadata.siteUrl + '/default-social-image.png',
         },
         {
           property: 'og:site_name',
-          content: site.siteMetadata.sitename,
+          content: siteMetadata.sitename,
         },
         // ! TWITTER
         {
@@ -98,7 +84,7 @@ const SEO: React.FC<Props> = ({
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: siteMetadata.author,
         },
         {
           name: `twitter:title`,
