@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Mike Starter',
-    sitename: 'Gatsby Mike Starter',
+    title: 'Gatsby Starter Mike',
+    sitename: 'Gatsby Starter Mike',
     siteUrl: 'localhost:8000',
     description:
-      'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
-    author: '@gatsbyjs',
+      'Gatsby Starter with TypeScript support, js styling with styled-components and MDX posts',
+    author: '',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -21,11 +21,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'gatsby-starter-mike',
+        short_name: 'mike-starter',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
+        background_color: '#232946',
+        theme_color: '#232946',
         display: 'minimal-ui',
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },
@@ -33,7 +33,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-styled-components',
       options: {
-        displayName: true,
+        displayName: false,
       },
     },
     'gatsby-transformer-json',
