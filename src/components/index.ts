@@ -11,6 +11,9 @@ import BackToTop from './BackToTop/BackToTop';
 import SEO from './SEO/SEO';
 import Image from './Image/Image';
 import NotFoundImage from './NotFoundImage/NotFoundImage';
+import PostsList from './PostsList/PostsList';
+import PostPreview from './PostPreview/PostPreview';
+import PageButtons from './PageButtons/PageButtons';
 
 export {
   Navbar,
@@ -26,4 +29,7 @@ export {
   SEO,
   Image,
   NotFoundImage,
+  PostPreview,
+  PostsList,
+  PageButtons,
 };

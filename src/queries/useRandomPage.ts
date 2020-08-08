@@ -17,11 +17,5 @@ export const useRandomPage = (): string => {
   `);
 
   const randomIndex = Math.floor(Math.random() * totalCount);
-  console.log(randomIndex);
-
-  if (nodes[randomIndex]) {
-    return nodes[randomIndex].path;
-  }
-
-  return '/';
+  return nodes[randomIndex] ? nodes[randomIndex].path : '/';
 };

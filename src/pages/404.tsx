@@ -15,8 +15,8 @@ const NotFoundPage: React.FC = () => {
         Feel free to check some of this links out.
       </p>
       <hr />
-      <div className="centered-vertical">
-        <Button>Go back to the Homepage</Button>
+      <div className="centered">
+        <Button>Homepage</Button>
         <Button anchorTo={randomPage}>Visit a random page</Button>
       </div>
       <NotFoundImage />

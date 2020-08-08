@@ -8,6 +8,10 @@
     "path": "/using-typescript"
   },
   {
+    "name": "Blog",
+    "path": "/blog"
+  },
+  {
     "name": "about",
     "path": "/about/"
   }

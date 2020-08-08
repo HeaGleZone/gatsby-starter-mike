@@ -121,7 +121,7 @@ const GlobalStyle = createGlobalStyle`
     opacity: 0.2;
   }
 
-  .centered-vertical {
+  .centered {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -141,6 +141,41 @@ const GlobalStyle = createGlobalStyle`
     padding: 80px 0 20px 0;
     background: ${props => props.theme.backgrounds.secondary};
     color: ${props => props.theme.headline.secondary};
+  }
+
+  .section-heading-divider {
+    margin: 0 0 40px 0;
+  }
+
+  .gatsby-highlight > pre {
+    border-radius: 0.6em;
+    margin: 2em 0 2em 0;
+  }
+
+  .gatsby-highlight-code-line {
+    background-color: #feb;
+    display: block;
+    margin-right: -1em;
+    margin-left: -1em;
+    padding-right: 1em;
+    padding-left: 0.75em;
+    border-left: 0.25em solid #f99;
+  }
+
+  .gatsby-resp-image-image {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 32px 32px 0px, rgba(0, 0, 0, 0.15) 0px 16px 16px 0px, rgba(0, 0, 0, 0.15) 0px 8px 8px 0px, rgba(0, 0, 0, 0.15) 0px 4px 4px 0px !important;
+  }
+
+  :not(pre) > code[class*="language-"] {
+    padding: 0.1em 0.2em 0.1em 0.2em; 
+  }
+
+  .gatsby-resp-image-wrapper {
+    margin: 1em 0 1em 0;
+  }
+
+  .blog-wrapper {
+    width: 50%;
   }
 
   @media all and (max-width: 800px) {
@@ -166,7 +201,7 @@ const GlobalStyle = createGlobalStyle`
 
     main.general-content {
       box-sizing: border-box;
-      padding: 20px;
+      padding: 0 20px;
     }
 
     section.socials {
@@ -175,6 +210,14 @@ const GlobalStyle = createGlobalStyle`
 
     .section-title ~ .secondary {
       padding: 60px 0 20px 0;
+    }
+
+    .section-heading-divider {
+      margin: 0 0 24px 0;
+    }
+
+    .blog-wrapper {
+      width: 90%;
     }
   }
 `;

@@ -8,16 +8,35 @@ module.exports = {
     author: '',
   },
   plugins: [
+    'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'images',
-        path: `${__dirname}/src/images`,
+        name: 'posts',
+        path: `${__dirname}/src/posts/`,
       },
     },
-    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/images/`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/configs/`,
+      },
+    },
     'gatsby-plugin-sharp',
+    {
+      resolve: `gatsby-transformer-sharp`,
+      options: {
+        checkSupportedExtensions: false,
+      },
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -34,15 +53,10 @@ module.exports = {
       resolve: 'gatsby-plugin-styled-components',
       options: {
         displayName: false,
+        pure: true,
       },
     },
     'gatsby-transformer-json',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/configs`,
-      },
-    },
     {
       resolve: 'gatsby-plugin-eslint',
       options: {
@@ -129,6 +143,34 @@ module.exports = {
             };
           });
         },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        extensions: ['.mdx', '.md'],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              classPrefix: 'language-',
+              inlineCodeMarker: null,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 950,
+              quality: 100,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_blank',
+            },
+          },
+        ],
       },
     },
   ],
