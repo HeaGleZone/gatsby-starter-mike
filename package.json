@@ -67,10 +67,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/armanimichael/gatsby-starter-mike/"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/armanimichael/gatsby-starter-mike/issues"
   },
   "resolutions": {
     "**/**/dot-prop": "5.2.0"
