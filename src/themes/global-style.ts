@@ -178,6 +178,12 @@ const GlobalStyle = createGlobalStyle`
     width: 50%;
   }
 
+
+  .CookieConsent {
+    z-index: 10000 !important;
+    font-size: 18px;
+  }
+
   @media all and (max-width: 800px) {
     h1 {
       font-size: 40px;

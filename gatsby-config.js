@@ -8,6 +8,16 @@ module.exports = {
     author: '',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-gdpr-cookies`,
+      options: {
+        googleAnalytics: {
+          trackingId: 'YOUR_GOOGLE_ANALYTICS_TRACKING_ID',
+          anonymize: true,
+        },
+        environments: ['production', 'development'],
+      },
+    },
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
     {
@@ -74,6 +84,7 @@ module.exports = {
       options: {
         analyzerPort: 3000,
         production: false,
+        disable: true,
       },
     },
     'gatsby-plugin-preact',
