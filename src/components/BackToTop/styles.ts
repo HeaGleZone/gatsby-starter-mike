@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 
-const BackToTopStyled = styled.a`
+const BackToTopStyled = styled(Link)`
   position: fixed;
   right: 20px;
   bottom: 20px;
