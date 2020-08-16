@@ -25,7 +25,6 @@ const BlogFeed: React.FC<Props> = ({
   },
 }) => {
   const pageNumber: number = +pathname.replace(/[^\d+$]/g, '');
-  console.log(pathname);
 
   return (
     <Layout>
