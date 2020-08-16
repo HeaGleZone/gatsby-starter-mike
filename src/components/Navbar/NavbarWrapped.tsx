@@ -17,6 +17,11 @@ interface Props {
 
 const NavbarWrapped: React.FC<Props> = props => {
   const [isOpen, setOpen] = useState(false);
+  const links = React.Children.map(props.children, link =>
+    React.cloneElement(link as React.ReactElement, {
+      onClick: () => setOpen(false),
+    })
+  );
 
   return (
     <NavbarWrappedStyled {...props}>
@@ -24,7 +29,7 @@ const NavbarWrapped: React.FC<Props> = props => {
       <Logo isWrapped={true} image={props.logoImg} to="/" />
       <MenuButton isClicked={isOpen} onClick={() => setOpen(!isOpen)} />
       <ContentWrapped isClicked={isOpen} isHidden={props.isHidden}>
-        {props.children}
+        {links}
       </ContentWrapped>
     </NavbarWrappedStyled>
   );
