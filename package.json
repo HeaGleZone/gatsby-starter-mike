@@ -28,7 +28,6 @@
     "gatsby-source-filesystem": "^2.3.11",
     "gatsby-transformer-json": "^2.4.6",
     "gatsby-transformer-sharp": "^2.5.5",
-    "global": "^4.4.0",
     "preact": "^10.4.6",
     "preact-render-to-string": "^5.1.10",
     "prismjs": "^1.20.0",
