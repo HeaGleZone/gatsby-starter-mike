@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
-import { DefaultTheme } from 'styled-components';
 import { ThemeProvider } from 'styled-components';
 import CookieConsent from 'react-cookie-consent';
 
@@ -8,8 +7,6 @@ import HeroContent from './HeroContent';
 
 import '../../themes/index.css';
 import GlobalStyle from '../../themes/global-style';
-
-import { useTheme } from '../../hooks/useTheme';
 
 import { Navbar, Footer, ThemeModal, BackToTop, SEO } from '../../components';
 
@@ -39,13 +36,23 @@ const Layout: React.FC<Props> = ({
   allowPadding = true,
 }) => {
   const [showThemeModal, setThemeModalState] = useState<boolean>(false);
-  const [currentTheme, setCurrentTheme] = useState<string>(
-    useTheme().themeName
-  );
-  const theme: DefaultTheme = useTheme(currentTheme).theme;
+
+  const [currentTheme, setTheme] = useState<string>('main');
+
+  useEffect(() => {
+    setTheme(window.localStorage.getItem('theme') || 'main');
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('theme', currentTheme);
+  }, [currentTheme]);
+
+  const setNewTheme = (newTheme: string) => {
+    setTheme(newTheme);
+  };
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={themes[currentTheme]}>
       {SEOComponent || <SEO />}
       <GlobalStyle />
       <BackToTop />
@@ -64,7 +71,7 @@ const Layout: React.FC<Props> = ({
         {showThemeModal && (
           <ThemeModal
             changeTheme={(newTheme: string): void => {
-              setCurrentTheme(newTheme);
+              setNewTheme(newTheme);
             }}
             setVisibility={(): void => {
               setThemeModalState(false);

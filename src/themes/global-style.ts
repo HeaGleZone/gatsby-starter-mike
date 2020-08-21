@@ -183,6 +183,10 @@ const GlobalStyle = createGlobalStyle`
   .CookieConsent {
     z-index: 10000 !important;
     font-size: 18px;
+
+    & a {
+      color: #a7a9be;
+    }
   }
 
   @media all and (max-width: 800px) {

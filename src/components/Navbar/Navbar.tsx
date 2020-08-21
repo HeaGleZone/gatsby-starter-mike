@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IoMdSettings } from 'react-icons/io';
 
 import { NavbarStyled, NavbarExtended, Logo } from './styles';
@@ -14,10 +14,6 @@ interface NavbarProps extends ThemeButtonProps {
   logoSrc?: string;
   allowTheming?: boolean;
 }
-
-const ThemeButton: React.FC<ThemeButtonProps> = ({ openThemesModal }) => (
-  <IoMdSettings onClick={openThemesModal} />
-);
 
 const Navbar: React.FC<NavbarProps> = ({
   logoSrc,
@@ -71,7 +67,7 @@ const Navbar: React.FC<NavbarProps> = ({
       <NavbarExtended isHidden={isWrapped} id="navbar-extended">
         <Logo isWrapped={false} id="logo" image={logoSrc} to="/" />
         {generateLinks()}
-        {allowTheming && <ThemeButton openThemesModal={openThemesModal} />}
+        {allowTheming && <IoMdSettings onClick={openThemesModal} />}
       </NavbarExtended>
 
       <NavbarWrapped
@@ -79,11 +75,11 @@ const Navbar: React.FC<NavbarProps> = ({
         id="navbar-wrapped"
         logoImg={logoSrc}
       >
-        {allowTheming && <ThemeButton openThemesModal={openThemesModal} />}
+        {allowTheming && <IoMdSettings onClick={openThemesModal} />}
         {generateLinks()}
       </NavbarWrapped>
     </NavbarStyled>
   );
 };
 
-export default memo(Navbar);
+export default Navbar;

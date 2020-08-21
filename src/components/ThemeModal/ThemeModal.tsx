@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Content } from './styles';
 
 import { Modal } from '../';
 
 import themes from '../../themes/themes';
-import { useTheme } from '../../hooks/useTheme';
 
 interface Props {
   title?: string;
@@ -18,6 +17,12 @@ const ThemeModal: React.FC<Props> = ({
   title = 'Select Theme',
   changeTheme,
 }) => {
+  const [currentTheme, setTheme] = useState<string>('main');
+
+  useEffect(() => {
+    setTheme(window.localStorage.getItem('theme') || 'main');
+  }, []);
+
   const handleThemeChanging = (e: React.FormEvent<HTMLDivElement>): void => {
     const newTheme: string = (e.target as HTMLInputElement).value;
 
@@ -35,7 +40,7 @@ const ThemeModal: React.FC<Props> = ({
             type="radio"
             value={theme}
             name="theme"
-            defaultChecked={useTheme().themeName === theme}
+            defaultChecked={currentTheme === theme}
           />
           <p>{theme}</p>
         </span>
