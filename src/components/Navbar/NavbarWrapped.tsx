@@ -26,7 +26,7 @@ const NavbarWrapped: React.FC<Props> = props => {
   return (
     <NavbarWrappedStyled {...props}>
       <DisableBodyScroll disableScroll={isOpen && !props.isHidden} />
-      <Logo isWrapped={true} image={props.logoImg} to="/" />
+      <Logo isWrapped={true} image={props.logoImg} to="/" title="Homepage" />
       <MenuButton isClicked={isOpen} onClick={() => setOpen(!isOpen)} />
       <ContentWrapped isClicked={isOpen} isHidden={props.isHidden}>
         {links}

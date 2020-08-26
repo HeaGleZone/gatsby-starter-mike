@@ -27,7 +27,7 @@ const ServiceCard: React.FC<Props> = ({
   <ServiceCardStyled>
     <Image image={image} />
     <Name>{name}</Name>
-    <Button to={anchorTo}>
+    <Button to={anchorTo} title={name}>
       <Arrow />
     </Button>
     <InfoBar>

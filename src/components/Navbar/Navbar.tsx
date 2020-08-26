@@ -65,7 +65,13 @@ const Navbar: React.FC<NavbarProps> = ({
     <NavbarStyled>
       <div id="top" />
       <NavbarExtended isHidden={isWrapped} id="navbar-extended">
-        <Logo isWrapped={false} id="logo" image={logoSrc} to="/" />
+        <Logo
+          isWrapped={false}
+          id="logo"
+          image={logoSrc}
+          to="/"
+          title="Homepage"
+        />
         {generateLinks()}
         {allowTheming && <IoMdSettings onClick={openThemesModal} />}
       </NavbarExtended>

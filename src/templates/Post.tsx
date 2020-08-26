@@ -37,7 +37,7 @@ const Post: React.FC<Props> = ({ data: { mdx } }) => (
         <MDXRenderer>{mdx.body}</MDXRenderer>
         <hr />
         <div className="centered">
-          <Button>Homepage</Button>
+          <Button title="Homepage">Homepage</Button>
         </div>
       </MDXProvider>
     </div>
